@@ -70,4 +70,11 @@ for (let i = 0; i < keys.length; i++) {
 }
 
 
+/*
+Написати функцію для кодування. Функція примає стрічку і об'єкт
+по якому буде кодуватись приклад
+{a: "r", b: "t"}
+
+ */
+
 // console.log({dictionary, keys, maxCount, sumbol})
