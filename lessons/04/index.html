@@ -5,25 +5,64 @@
   <meta charset="utf-8">
 </head>
 <link href="style.css" rel="stylesheet">
-<script type="text/javascript" src="tools.js"></script>
 <body>
   <h1>Лекція 4</h1>
   <table>
   	<tr>
-  		<td id="td-1" class="my-td" onclick="plus(1)">+1</td>
-  		<td id="td-2" class="my-td" onclick="plus(2)">+2</td>
-  		<td id="td-3" class="my-td" onclick="plus(3)">+3</td>
+  		<td id="td-1" class="my-td" onclick="plus(1, this)">+1</td>
+  		<td id="td-2" class="my-td" onclick="plus(2, this)">+2</td>
+  		<td id="td-3" class="my-td" onclick="plus(3, this)">+3</td>
   	</tr>
   	<tr>
-  		<td id="td-4" class="my-td" onclick="minus(1)">-1</td>
-  		<td id="td-5" class="my-td" onclick="minus(2)">-2</td>
-  		<td id="td-6" class="my-td" onclick="minus(3)">-3</td>
+  		<td id="td-4" class="my-td" onclick="minus(1, this)">-1</td>
+  		<td id="td-5" class="my-td" onclick="minus(2, this)">-2</td>
+  		<td id="td-6" class="my-td" onclick="minus(3, this)">-3</td>
   	</tr>
   	<tr>
-  		<td id="td-7" class="my-td" onclick="fre()">*2</td>
-  		<td id="td-8" class="my-td" onclick="div()">/2</td>
-  		<td id="td-9" class="my-td" onclick="log()"></td>
+  		<td id="td-7" class="my-td" onclick="fre(this)">*2</td>
+  		<td id="td-8" class="my-td" onclick="div(this)">/2</td>
+  		<td id="td-9" class="my-td" onclick="log(this)"></td>
   	</tr>
   </table>
+
+  <table>
+    <tr>
+      <td id="td-11" class="my-td" onclick="chengeColor(this)">+1</td>
+      <td id="td-12" class="my-td" onclick="chengeColor(this)">+2</td>
+      <td id="td-13" class="my-td" onclick="chengeColor(this)">+3</td>
+    </tr>
+    <tr>
+      <td id="td-14" class="my-td" onclick="chengeColor(this)">-1</td>
+      <td id="td-15" class="my-td" onclick="chengeColor(this)">-2</td>
+      <td id="td-16" class="my-td" onclick="chengeColor(this)">-3</td>
+    </tr>
+    <tr>
+      <td id="td-17" class="my-td" onclick="chengeColor(this)">*2</td>
+      <td id="td-18" class="my-td" onclick="chengeColor(this)">/2</td>
+      <td id="td-19" class="my-td" onclick="chengeColor(this)"></td>
+    </tr>
+  </table>
+
+  <h1> Хрестики і нолики </h1>
+
+  <table>
+    <tr>
+      <td id="td-11" class="my-td" onclick="game(this)"></td>
+      <td id="td-12" class="my-td" onclick="game(this)"></td>
+      <td id="td-13" class="my-td" onclick="game(this)"></td>
+    </tr>
+    <tr>
+      <td id="td-14" class="my-td" onclick="game(this)"></td>
+      <td id="td-15" class="my-td" onclick="game(this)"></td>
+      <td id="td-16" class="my-td" onclick="game(this)"></td>
+    </tr>
+    <tr>
+      <td id="td-17" class="my-td" onclick="game(this)"></td>
+      <td id="td-18" class="my-td" onclick="game(this)"></td>
+      <td id="td-19" class="my-td" onclick="game(this)"></td>
+    </tr>
+  </table>
+
 </body>
+<script type="text/javascript" src="tools.js"></script>
 </html>
