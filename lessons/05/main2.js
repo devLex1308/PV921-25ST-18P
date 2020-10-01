@@ -47,12 +47,7 @@ function Dot(startX, startY) {
 }
 
 const dot = new Dot(1, 1);
-dot.up();
-dot.up();
-dot.up();
-dot.up();
-dot.up();
-dot.left();
-dot.left();
+const display = new Display(20, 20);
+
 console.log(dot.getX(), dot.getY());
 
