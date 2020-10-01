@@ -1,53 +1,89 @@
 console.log("main2");
 
 
-function Dot(startX, startY) {
-  let _x, _y;
 
-  this.setX = function (x) {
-    _x = x;
+
+
+
+
+
+
+function Game() {
+  let display;
+  let dot;
+
+  const MOVE_UP = 1;
+  const MOVE_DOWN = 2;
+  const MOVE_RIGHT = 3;
+  const MOVE_LEFT = 4;
+
+  let direction;
+
+  function init() {
+    const bodyEl = document.querySelector("#body");
+
+    bodyEl.addEventListener("click", (e) => {
+      console.log(e.target.id);
+      switch(e.target.id) {
+        case "up":
+          dot.up();
+          direction = MOVE_UP;
+          break;
+        case "down":
+          dot.down();
+          direction = MOVE_DOWN;
+          break;
+        case "left":
+          dot.left();
+          direction = MOVE_LEFT;
+          break;
+        case "right":
+          dot.right();
+          direction = MOVE_RIGHT;
+          break;
+        default:
+          console.log("Це не елемент керування");
+          return;
+      }
+      display.clearDisplay();
+      display.setPixel(dot.getX(), dot.getY());
+
+    });
+
+    display = new Display(20, 20);
+    dot = new Dot(1, 1);
+    display.setPixel(dot.getX(), dot.getY());
+
+    direction = MOVE_RIGHT;
   }
 
-  this.setY = function (y) {
-    _y = y;
+
+  this.update = function () {
+    switch(direction){
+      case MOVE_UP:
+        dot.up();
+        break;
+      case MOVE_DOWN:
+        dot.down();
+        break;
+      case MOVE_RIGHT:
+        dot.right();
+        break;
+      case MOVE_LEFT:
+        dot.left();
+        break;
+    }
+    display.clearDisplay();
+    display.setPixel(dot.getX(), dot.getY());
   }
 
-  this.getX = function () {
-    return _x;
-  }
-
-  this.getY = function () {
-    return _y;
-  }
-
-  this.up = function() {
-    _y++;
-  }
-
-  this.down = function() {
-    _y--;
-  }
-
-  this.left = function() {
-    _x--;
-  }
-
-  this.right = function() {
-    _x++;
-  }
-
-
-  const init = function (x, y) {
-    _x = x;
-    _y = y;
-  }
-
-  init(startX, startY);
-
+  init();
 }
 
-const dot = new Dot(1, 1);
-const display = new Display(20, 20);
+
+const game = new Game();
+
+setInterval(game.update, 1000);
 
 console.log(dot.getX(), dot.getY());
 
