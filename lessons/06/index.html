@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Лекція 6</title>
+</head>
+<link href="style.css" rel="stylesheet">
+<script type="text/javascript" src="tools.js"></script>
+<body>
+  
+  <form id="contact">
+    <div id="step1" class="hiden">
+      <label>
+        <p>Введіть прізвище</p>
+        <input id="userName" type="text">
+      </label>
+      <label>
+        <p>Введіть ім`я</p>
+        <input id="userSemame" type="text">
+      </label>
+      <label>
+        <p>Введіть по батькові</p>
+        <input id="userMiddlename" type="text">
+      </label>
+      <label>
+        <p>Введіть по телефон</p>
+        <input id="userPhone" type="text">
+      </label>
+      <label>
+        <input id="userSename" type="checkbox">
+        <p>Я даю згоду на збір персональних даних</p>
+      </label>
+      <br>
+      <a>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Далі
+      </a>
+    </div>
+    <div id="step2" class="hiden">
+      <p>Оберість автобус у якому ви будете їхати</p>
+      <select id="userBus" class="select-css">
+        <option value="1">Neoplan 51</option>
+        <option value="2">Ikarus 256</option>
+        <option value="0">Не треба автобуса я сам доберусь</option>
+      </select>
+      <p>Оберість готель</p>
+      <select id="userBus" class="select-css">
+        <option value="1">Готель Плай</option>
+        <option value="2">Gold Palace</option>
+        <option value="0">Не треба готеля я знайду де переночувати</option>
+      </select>
+      <div>
+        <a>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Назад
+        </a>
+        <a>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Далі
+        </a>
+      </div>
+    </div>
+    <div id="step3" class="hiden">
+      <p>Оберіть необхідний вам абонимент:</p>
+      <div>
+        <input type="radio" id="skyType1" name="contact" value="1">
+        <label for="skyType1">Непотрібно</label>
+        <input type="radio" id="skyType2" name="contact" value="2">
+        <label for="skyType2">Ранкове катання</label>
+        <input type="radio" id="skyType3" name="contact" value="3">
+        <label for="skyType3">Денне катання</label>
+        <input type="radio" id="skyType4" name="contact" value="4">
+        <label for="skyType4">Вечірне катання</label>
+        <input type="radio" id="skyType5" name="contact" value="5">
+        <label for="skyType5">Денне і вечірне катання</label>
+      </div>
+      <p>Якщо у вас є запитання чи побажання то залиште їх в полі:</p>
+      <textarea id="userText" rows="10" cols="45" name="userText">
+      </textarea>
+      <a>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Назад
+      </a>
+      <a>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Готово
+      </a>
+      <button type="submit">
+        Готово
+      </button>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
