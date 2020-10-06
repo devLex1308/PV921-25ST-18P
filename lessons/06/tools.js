@@ -7,9 +7,12 @@ const userMiddlenameElement = document.querySelector("#userMiddlename");
 const userPhoneElement = document.querySelector("#userPhone");
 const userIgreeElement = document.querySelector("#userIgree");
 
+const userBusElement = document.querySelector("#userBus");
+const userHotelElement = document.querySelector("#userHotel");
+
 const buttons = document.querySelectorAll(".goToStep");
 
-document.querySelector("#step1").classList.add("show");
+document.querySelector("#step3").classList.add("show");
 
 for(let i = 0; i < buttons.length; i++) {
   const button = buttons[i];
@@ -22,9 +25,15 @@ function clickButton(event) {
   const button = event.target;
   console.log({button});
   const step = event.target.getAttribute("data-go-to-step");
+   
+  const submit = event.target.getAttribute("data-submit");
+
+  if (submit) {
+    checkStep3();
+  }
   // console.log({step});
 
-  if (check(step)){
+  if (step && check(step)){
     // showStep(step);
     console.log("Все гаразд");
   }
@@ -35,6 +44,10 @@ function check(step) {
 
   if (step == 2) {
     return checkStep1();
+  }
+
+  if (step == 3) {
+    return checkStep2();
   }
 
   return false;
@@ -77,6 +90,23 @@ function checkStep1() {
   return true;
 
 }
+
+function checkStep2() {
+  const bus = userBusElement.value;
+  const hotel = userHotelElement.value;
+
+  console.log({
+    bus,
+    hotel,
+  })
+
+  return true;
+}
+
+function checkStep3() {
+
+}
+
 
 
 function checkPhone(str) {
