@@ -9,6 +9,7 @@ const userIgreeElement = document.querySelector("#userIgree");
 
 const userBusElement = document.querySelector("#userBus");
 const userHotelElement = document.querySelector("#userHotel");
+const userTextElement = document.querySelector("#userText");
 
 const buttons = document.querySelectorAll(".goToStep");
 
@@ -30,6 +31,8 @@ function clickButton(event) {
 
   if (submit) {
     checkStep3();
+    console.log(getAllData());
+    resetData();
   }
   // console.log({step});
 
@@ -91,6 +94,18 @@ function checkStep1() {
 
 }
 
+function resetData() {
+  userNameElement.value = "";
+  userSemameElement.value = "";
+  userMiddlenameElement.value = "";
+  userPhoneElement.value = "";
+  userIgreeElement.checked = false;
+  userBusElement.value = "1";
+  userHotelElement.value = "1";
+  document.querySelector("#step3 input[type='radio']:checked").checked = false;
+  userTextElement.value = "";
+}
+
 function checkStep2() {
   const bus = userBusElement.value;
   const hotel = userHotelElement.value;
@@ -102,6 +117,31 @@ function checkStep2() {
 
   return true;
 }
+
+function getAllData() {
+  const name = userNameElement.value;
+  const sename = userSemameElement.value;
+  const middleName = userMiddlenameElement.value;
+  const phone = userPhoneElement.value;
+  const iGree = userIgreeElement.checked;
+  const bus = userBusElement.value;
+  const hotel = userHotelElement.value;
+  const skyType = document.querySelector("#step3 input[type='radio']:checked").value;
+  const userText = userTextElement.value;
+
+  return {
+    name,
+    sename,
+    middleName,
+    phone,
+    iGree,
+    bus,
+    hotel,
+    skyType,
+    userText
+  }
+}
+
 
 function checkStep3() {
   console.log("checkStep3");
