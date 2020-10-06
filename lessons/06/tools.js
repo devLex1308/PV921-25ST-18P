@@ -24,14 +24,71 @@ function clickButton(event) {
   const step = event.target.getAttribute("data-go-to-step");
   // console.log({step});
 
-  console.log(userNameElement.value);
-  console.log(userSemameElement.value);
-  console.log(userMiddlenameElement.value);
-  
-  console.log(userPhoneElement.value);
-  console.log(userIgreeElement.checked);
+  if (check(step)){
+    // showStep(step);
+    console.log("Все гаразд");
+  }
 
-  // showStep(step);
+}
+
+function check(step) {
+
+  if (step == 2) {
+    return checkStep1();
+  }
+
+  return false;
+}
+
+function checkStep1() {
+
+  const name = userNameElement.value;
+  const sename = userSemameElement.value;
+  const middleName = userMiddlenameElement.value;
+  
+  const phone = userPhoneElement.value;
+  const iGree = userIgreeElement.checked;
+
+  if (!checkInputText(name)) {
+    alert("Ім'я ввдено не вірно");
+    return false;
+  }
+
+  if (!checkInputText(sename)) {
+    alert("Прізвище ввдено не вірно");
+    return false;
+  }
+
+  if (!checkInputText(middleName)) {
+    alert("По батькові ввдено не вірно");
+    return false;
+  }
+
+  if (!checkPhone(phone)) {
+    alert("Телефон ввдено не вірно");
+    return false;
+  }
+
+  if(!iGree) {
+    alert("Ви повинні погодитись на обробку персональних даних!");
+    return false;
+  }
+
+  return true;
+
+}
+
+
+function checkPhone(str) {
+  const rx = /^\+?\d{9,12}$/;
+  return rx.test(str);
+}
+
+console.log(checkPhone("+380661234567"));
+
+function checkInputText(str) {
+  const rx = /^[А-Яа-яёЁЇїІіЄєҐґ]{2,40}$/;
+  return rx.test(str);
 }
 
 function showStep(step) {
