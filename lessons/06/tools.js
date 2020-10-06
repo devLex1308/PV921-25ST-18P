@@ -4,6 +4,9 @@ const userNameElement = document.querySelector("#userName");
 const userSemameElement = document.querySelector("#userSemame");
 const userMiddlenameElement = document.querySelector("#userMiddlename");
 
+const userPhoneElement = document.querySelector("#userPhone");
+const userIgreeElement = document.querySelector("#userIgree");
+
 const buttons = document.querySelectorAll(".goToStep");
 
 document.querySelector("#step1").classList.add("show");
@@ -24,8 +27,11 @@ function clickButton(event) {
   console.log(userNameElement.value);
   console.log(userSemameElement.value);
   console.log(userMiddlenameElement.value);
+  
+  console.log(userPhoneElement.value);
+  console.log(userIgreeElement.checked);
 
-  showStep(step);
+  // showStep(step);
 }
 
 function showStep(step) {
