@@ -358,3 +358,7 @@ fieldset {
 .error {
   border: 2px solid red;
 }
+
+.show{
+  display: block;
+}

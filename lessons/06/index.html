@@ -4,7 +4,6 @@
   <title>Лекція 6</title>
 </head>
 <link href="style.css" rel="stylesheet">
-<script type="text/javascript" src="tools.js"></script>
 <body>
   
   <form id="contact">
@@ -30,7 +29,7 @@
         <p>Я даю згоду на збір персональних даних</p>
       </label>
       <br>
-      <a>
+      <a class="goToStep" data-go-to-step="2">
         <span></span>
         <span></span>
         <span></span>
@@ -52,14 +51,14 @@
         <option value="0">Не треба готеля я знайду де переночувати</option>
       </select>
       <div>
-        <a>
+        <a class="goToStep" data-go-to-step="1">
           <span></span>
           <span></span>
           <span></span>
           <span></span>
           Назад
         </a>
-        <a>
+        <a class="goToStep" data-go-to-step="3">
           <span></span>
           <span></span>
           <span></span>
@@ -85,7 +84,7 @@
       <p>Якщо у вас є запитання чи побажання то залиште їх в полі:</p>
       <textarea id="userText" rows="10" cols="45" name="userText">
       </textarea>
-      <a>
+      <a class="goToStep" data-go-to-step="2">
         <span></span>
         <span></span>
         <span></span>
@@ -107,4 +106,5 @@
 </div>
 
 </body>
+<script type="text/javascript" src="tools.js"></script>
 </html>
