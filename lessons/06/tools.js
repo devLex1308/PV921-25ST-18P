@@ -14,7 +14,7 @@ const finalButton = document.querySelector("button");
 
 console.log(finalButton);
 
-document.querySelector('#step3').classList.add("show");
+document.querySelector('#step1').classList.add("show");
 
 for (let i = 0; i < buttons.length; i++) {
 	const button = buttons[i];
