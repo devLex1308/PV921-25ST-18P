@@ -363,9 +363,16 @@ fieldset {
   display: block;
 }
 
-/*#step3 input[type="radio"]:checked {
-  background: red;
-  border: 1px solid red;
-  display: block;
+.red-border{
+  border: 2px solid red!important;
 }
-*/
+
+.red-shadow{
+  box-shadow: 0 0 0 1px red;
+  background-color: red;
+}
+
+
+/*#step3 input[type=radio]:checked{
+  display: block;
+}*/

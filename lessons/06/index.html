@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Лекція 6</title>
+  <meta charset="utf-8">
 </head>
 <link href="style.css" rel="stylesheet">
 <body>
@@ -10,26 +11,28 @@
     <div id="step1" class="hiden">
       <label>
         <p>Введіть прізвище</p>
-        <input id="userSemame" type="text" value="Павлюк">
+        <input id="userSemame" type="text" value="Вася">
       </label>
       <label>
         <p>Введіть ім`я</p>
-        <input id="userName" type="text" value="Олександр">
+        <input id="userName" type="text" value="Вася">
       </label>
       <label>
         <p>Введіть по батькові</p>
-        <input id="userMiddlename" type="text" value="Анатолійович">
+        <input id="userMiddlename" type="text" value="Вася">
       </label>
       <label>
         <p>Введіть по телефон</p>
-        <input id="userPhone" type="text" value="102">
+        <input id="userPhone" type="text" value="123">
       </label>
       <label>
-        <input id="userIgree" checked="checked" type="checkbox" value="test">
+        
+        <input id="userAgree" type="checkbox" checked="checked">
+      
         <p>Я даю згоду на збір персональних даних</p>
       </label>
       <br>
-      <a class="goToStep" data-go-to-step="2">
+      <a class="goToStep" data-go-step="2">
         <span></span>
         <span></span>
         <span></span>
@@ -51,14 +54,14 @@
         <option value="0">Не треба готеля я знайду де переночувати</option>
       </select>
       <div>
-        <a class="goToStep" data-go-to-step="1">
+        <a class="goToStep" data-go-step="1">
           <span></span>
           <span></span>
           <span></span>
           <span></span>
           Назад
         </a>
-        <a class="goToStep" data-go-to-step="3">
+        <a class="goToStep" data-go-step="3">
           <span></span>
           <span></span>
           <span></span>
@@ -70,21 +73,21 @@
     <div id="step3" class="hiden">
       <p>Оберіть необхідний вам абонимент:</p>
       <div>
-        <input type="radio" id="skyType1" name="skyType" value="1">
+        <input type="radio" id="skyType1" name="contact" checked="checked" value="1">
         <label for="skyType1">Непотрібно</label>
-        <input type="radio" id="skyType2" checked name="skyType" value="2">
+        <input type="radio" id="skyType2" name="contact" value="2">
         <label for="skyType2">Ранкове катання</label>
-        <input type="radio" id="skyType3" name="skyType" value="3">
+        <input type="radio" id="skyType3" name="contact" value="3">
         <label for="skyType3">Денне катання</label>
-        <input type="radio" id="skyType4" name="skyType" value="4">
+        <input type="radio" id="skyType4" name="contact" value="4">
         <label for="skyType4">Вечірне катання</label>
-        <input type="radio" id="skyType5" name="skyType" value="5">
+        <input type="radio" id="skyType5" name="contact" value="5">
         <label for="skyType5">Денне і вечірне катання</label>
       </div>
       <p>Якщо у вас є запитання чи побажання то залиште їх в полі:</p>
       <textarea id="userText" rows="10" cols="45" name="userText">
       </textarea>
-      <a class="goToStep" data-go-to-step="2">
+      <a class="goToStep" data-go-step="2">
         <span></span>
         <span></span>
         <span></span>
@@ -104,7 +107,6 @@
     </div>
   </form>
 </div>
-
 </body>
 <script type="text/javascript" src="tools.js"></script>
 </html>
