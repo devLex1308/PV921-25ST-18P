@@ -104,7 +104,11 @@ function checkStep2() {
 }
 
 function checkStep3() {
-
+  console.log("checkStep3");
+  const radioElemen = document.querySelector("#step3 input[type='radio']:checked");
+  if (radioElemen) {
+    console.log(radioElemen.value);
+  }
 }
 
 
