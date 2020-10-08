@@ -34,10 +34,10 @@ function request1(callback){
 }
 
 function request2(callback){
-  if (callback) {
+  if (true || callback) {
     setTimeout(() => {
       console.log("Request 2");
-      callback();
+      // callback();
     }, sleep2);
   }
 }
@@ -52,12 +52,47 @@ function request3(callback){
 }
 
 
+request3(request2);
 
-async function getData() {
-  const response = await fetch("https://reqres.in/api/users/2");
-  const dataString = await response.text();
-  const data = JSON.parse(dataString);
-  console.log({response, dataString, data});
+fetch("https://reqres.in/api/users/2").then((res) =>{
+
+  if(res.status == 200 || res.ok) {
+    console.log(res);
+    res.text().then((text) => {
+      const data = JSON.parse(text);
+      console.log(userHtml(data))
+      userHtml(data);
+
+    });
+  } else {
+    console.log("Є помилка");
+  }
+
+});
+
+
+function userHtml(data) {
+  return `
+    <div id="user-${data.data.id}">
+      <img
+        src="${data.data.avatar}"
+        alt="${data.data.first_name}"
+      >
+      <p>
+        ${data.data.first_name}
+        ${data.data.last_name}
+      </p>
+    </div>
+  `;
 }
+
+
+
+// async function getData() {
+//   const response = await fetch("https://reqres.in/api/users/2");
+//   const dataString = await response.text();
+//   const data = JSON.parse(dataString);
+//   console.log({response, dataString, data});
+// }
 
 getData();
