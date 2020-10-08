@@ -5,21 +5,50 @@ function getRandomInt(max) {
 const sleep1 = getRandomInt(5000);
 const sleep2 = getRandomInt(5000);
 const sleep3 = getRandomInt(5000);
+console.log({
+  sleep1,
+  sleep2,
+  sleep3
+});
 
-setTimeout(() =>{
-  console.log("Request 1");
-}, sleep1);
+// setTimeout(() =>{
+//   request1();
+//   setTimeout(() =>{
+//     request2();
+//     setTimeout(() =>{
+//       request3();
 
-function request1(){
-  console.log("Request 1");
+//     }, sleep3);
+//   }, sleep2);
+// }, sleep1);
+
+
+
+function request1(callback){
+  if (callback) {
+    setTimeout(() => {
+      console.log("Request 1");
+      callback();
+    }, sleep1);
+  }
 }
 
-function request2(){
-  console.log("Request 2");
+function request2(callback){
+  if (callback) {
+    setTimeout(() => {
+      console.log("Request 2");
+      callback();
+    }, sleep2);
+  }
 }
 
-function request3(){
-  console.log("Request 3");
+function request3(callback){
+  if (callback) {
+    setTimeout(() => {
+      console.log("Request 3");
+      callback();
+    }, sleep3);
+  }
 }
 
 
