@@ -54,33 +54,49 @@ function request3(callback){
 
 request3(request2);
 
-fetch("https://reqres.in/api/users/2").then((res) =>{
 
-  if(res.status == 200 || res.ok) {
-    console.log(res);
-    res.text().then((text) => {
-      const data = JSON.parse(text);
-      console.log(userHtml(data))
-      userHtml(data);
+for (let i = 1; i < 10; i++) {
+  fetch(`https://reqres.in/api/users/${i}`).then((res) =>{
 
-    });
-  } else {
-    console.log("Є помилка");
-  }
+    if(res.status == 200 || res.ok) {
+      console.log(res);
+      res.text().then((text) => {
+        const data = JSON.parse(text);
+        const html = userHtml(data);
 
-});
+      });
+    } else {
+      console.log("Є помилка");
+    }
+
+  });
+
+}
+
+
+
+
+
 
 
 function userHtml(data) {
+
+  const {
+    id,
+    avatar,
+    first_name,
+    last_name
+  } = data.data;
+
   return `
-    <div id="user-${data.data.id}">
+    <div id="user-${id}">
       <img
-        src="${data.data.avatar}"
-        alt="${data.data.first_name}"
+        src="${avatar}"
+        alt="${first_name}"
       >
       <p>
-        ${data.data.first_name}
-        ${data.data.last_name}
+        ${first_name}
+        ${last_name}
       </p>
     </div>
   `;
