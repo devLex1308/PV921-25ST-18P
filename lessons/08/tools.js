@@ -15,11 +15,11 @@ function request1(){
 }
 
 function request2(){
-  console.log("Request 1");
+  console.log("Request 2");
 }
 
 function request3(){
-  console.log("Request 1");
+  console.log("Request 3");
 }
 
 
