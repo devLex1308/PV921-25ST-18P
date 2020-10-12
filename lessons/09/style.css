@@ -1,0 +1,17 @@
+body {
+  background: green;
+}
+
+header h1 {
+  font-style: italic;
+}
+
+header div {
+  background-color: yellow;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end
+}
