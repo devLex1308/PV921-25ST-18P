@@ -1,6 +1,4 @@
 
-let USERS = null;
-
 async function getUser(user_id) {
   const res = await fetch(`https://reqres.in/api/users/${user_id}`);
   console.log({user_id, res});
@@ -17,7 +15,7 @@ async function getUser(user_id) {
 
 }
 
-getUser(1);
+// getUser(1);
 
 
 function sleep(seconds) {
@@ -42,15 +40,31 @@ async function getUsers() {
     };
   }
 
-  console.log({users});
-  USERS = users;
+  return users;
+}
+
+async function getUsersParalel() {
+  let users = {};
+  const usersPromises = [];
+  for(let i = 1; i <= 10; i++) {
+    usersPromises.push(getUser(i));
+  }
+  const res = await Promise.all(usersPromises);
+  console.log({res});
+
+  users = res.reduce((acc, item) =>{
+    acc[item.data.id] = item;
+    return acc;
+  }, {});
+
   return users;
 }
 
 
+
 async function ready() {
-  const users2 = await getUsers();
-  console.log({users2}, USERS);
+  const users2 = await getUsersParalel();
+  console.log({users2});
 }
 
 ready();
