@@ -33,21 +33,39 @@
 
 
 
-const prom = new Promise((resolve, reject) => {
-  // reject(2018);
-  // const res = 2020;
-  // resolve(res);
-  // resolve(2019);
+const wraperProm = () => {
+  const prom = new Promise((resolve, reject) => {
+    // reject(2018);
+    // const res = 2020;
+    // resolve(res);
+    // resolve(2019);
 
-  setTimeout(() => {
-    resolve("Test");
-  }, 2000 );
-});
+    setTimeout(() => {
 
-prom.then((r) => {
-  console.log(r);
-}).catch((c) => {
-  console.log({c});
-});
+      const rand = Math.random();
+      console.log({rand});
+      if (rand < 0.5) {
+        resolve("Все добре");
+      }
+
+      reject("Трапилась помилка!!!");
+
+    }, 500 );
+  });
+  return prom;
+}
 
 
+// prom.then((r) => {
+//   console.log(r);
+// }).catch((c) => {
+//   console.log({c});
+// });
+
+async function asyncFunction() {
+  const res = await wraperProm();
+  console.log({res})
+}
+
+
+asyncFunction();
