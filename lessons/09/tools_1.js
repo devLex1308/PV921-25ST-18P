@@ -56,7 +56,13 @@ const wraperProm = () => {
 }
 
 function sleep(seconds) {
-
+  const pause = seconds * 1000;
+  const res = `Пауза в ${seconds} секунди.`;
+  return new Promise(r => {
+    setTimeout(() => {
+      r(res);
+    }, pause);
+  });
 }
 
 
@@ -68,15 +74,27 @@ function sleep(seconds) {
 
 async function asyncFunction() {
   // const res = await wraperProm();
-  await sleep(1);
-  console.log("1");
-  await sleep(2);
-  console.log("2");
-  await sleep(4);
-  console.log("4");
+  let res = await sleep(1);
+  console.log("1", res);
+  res = await sleep(2);
+  console.log("2", res);
+  res = await sleep(4);
+  console.log("4", res);
 
-  console.log({res})
+  // console.log({res});
+}
+/*
+Передати в Promise all 10 функцій sleep так щоб час очікування був від 100 мС до 2 С
+*/
+
+async function asyncFunctionParalel() {
+  const pause1 = sleep(1);
+  const pause2 = sleep(2);
+  const pause4 = sleep(4);
+  const res = await Promise.all([pause1,pause2,pause4]);
+  console.log({res});
 }
 
 
-asyncFunction();
+// asyncFunction();
+asyncFunctionParalel();
