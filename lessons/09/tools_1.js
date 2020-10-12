@@ -55,6 +55,10 @@ const wraperProm = () => {
   return prom;
 }
 
+function sleep(seconds) {
+
+}
+
 
 // prom.then((r) => {
 //   console.log(r);
@@ -63,7 +67,14 @@ const wraperProm = () => {
 // });
 
 async function asyncFunction() {
-  const res = await wraperProm();
+  // const res = await wraperProm();
+  await sleep(1);
+  console.log("1");
+  await sleep(2);
+  console.log("2");
+  await sleep(4);
+  console.log("4");
+
   console.log({res})
 }
 
