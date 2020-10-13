@@ -1,13 +1,5 @@
 console.log("main2");
 
-
-
-
-
-
-
-
-
 function Game() {
   let display;
   let dot;
@@ -85,5 +77,5 @@ const game = new Game();
 
 setInterval(game.update, 1000);
 
-console.log(dot.getX(), dot.getY());
+// console.log(dot.getX(), dot.getY());
 
