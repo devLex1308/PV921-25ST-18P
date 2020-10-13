@@ -9,6 +9,9 @@ function Game() {
   const MOVE_RIGHT = 3;
   const MOVE_LEFT = 4;
 
+  const sizeX = 20;
+  const sizeY = 20;
+
   let direction;
 
   function init() {
@@ -29,9 +32,10 @@ function Game() {
           dot.left();
           direction = MOVE_LEFT;
           break;
-        case "right":
+        case "right": {
           dot.right();
           direction = MOVE_RIGHT;
+        }
           break;
         default:
           console.log("Це не елемент керування");
@@ -42,7 +46,7 @@ function Game() {
 
     });
 
-    display = new Display(20, 20);
+    display = new Display(sizeX, sizeY);
     dot = new Dot(1, 1);
     display.setPixel(dot.getX(), dot.getY());
 
@@ -58,9 +62,15 @@ function Game() {
       case MOVE_DOWN:
         dot.down();
         break;
-      case MOVE_RIGHT:
+      case MOVE_RIGHT: {
+        
         dot.right();
+        const _currentX = dot.getX();
+        if (_currentX > sizeX) {
+          dot.setX(0);
+        }
         break;
+      }
       case MOVE_LEFT:
         dot.left();
         break;
@@ -75,7 +85,7 @@ function Game() {
 
 const game = new Game();
 
-setInterval(game.update, 1000);
+setInterval(game.update, 100);
 
 // console.log(dot.getX(), dot.getY());
 

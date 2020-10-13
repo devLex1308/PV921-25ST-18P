@@ -30,8 +30,6 @@ function Display(sizeX, sizeY){
   }
 
   this.setPixel = function(x, y) {
-    console.log({x, y, _elementX: x * _elementX,
-_elementY: y * _elementY});
     ctx.beginPath();
     ctx.arc(x * _elementX, y * _elementY, 10, 0, 2 * Math.PI);
     ctx.stroke();

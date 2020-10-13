@@ -18,11 +18,11 @@ function Dot(startX, startY) {
   }
 
   this.up = function() {
-    _y++;
+    _y--;
   }
 
   this.down = function() {
-    _y--;
+    _y++;
   }
 
   this.left = function() {
