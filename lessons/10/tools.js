@@ -32,12 +32,14 @@ function createChessBoard(ctx, count) {
 
   let color = 'white';
   let iterator = 0;
-  for(let x = 0; x < width; x+= dx) {
-    console.log({x});
-    ctx.fillStyle = iterator % 2 == 0
-      ? 'white' 
-      : 'black';
-    ctx.fillRect(x, y, widthBlock, heightBlock);
+  for(let y = 0; y < height; y+= dy) {
+    for(let x = 0; x < width; x+= dx) {
+      ctx.fillStyle = iterator % 2 == 0
+        ? 'white' 
+        : 'black';
+      ctx.fillRect(x, y, widthBlock, heightBlock);
+      iterator++;
+    }
     iterator++;
   }
 
