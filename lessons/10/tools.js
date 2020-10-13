@@ -78,13 +78,26 @@ function circleAnimate(ctx) {
   const radius = 50;
 
   let x = radius;
-  showCircle(ctx, x, height / 2, radius);
+  let y = height / 2;
 
+  showCircle(ctx, x, height / 2, radius);
+  let d = 5; 
+  let iterator = 0;
   setInterval(() => {
-    x += 5; 
+    if (x + radius >= width) {
+      d = -5;
+    }
+
+    if (x - radius <= 0) {
+      d = 5;
+    }
+    x += d; 
     clearCanvas(ctx);
-    showCircle(ctx, x, height / 2, radius);
-  } , 100);
+    showCircle(ctx, x, y, radius);
+    iterator++;
+    y = height / 2 + 100 * Math.sin(iterator / 10);
+
+  } , 1000 / 60);
 
 }
 
