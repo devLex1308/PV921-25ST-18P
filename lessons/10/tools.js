@@ -64,6 +64,12 @@ function showCircle(ctx, x, y, r) {
 
 }
 
+function clearCanvas(ctx) {
+  const {width, height} = getSizes();
+  ctx.fillStyle = "white";
+  ctx.fillRect(0, 0, width, height);
+}
+
 
 function circleAnimate(ctx) {
   const {width, height} = getSizes();
@@ -73,9 +79,10 @@ function circleAnimate(ctx) {
 
   let x = radius;
   showCircle(ctx, x, height / 2, radius);
-  
+
   setInterval(() => {
     x += 5; 
+    clearCanvas(ctx);
     showCircle(ctx, x, height / 2, radius);
   } , 100);
 
