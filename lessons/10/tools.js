@@ -22,7 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // ctx.lineWidth = 15;
   // ctx.stroke();
   // createChessBoard(ctx, 8);
-  brownianMotion(ctx);
+  circleAnimate(ctx);
+  // ctx.beginPath();
+  // ctx.arc(75, 75, 50, 0, 2 * Math.PI);
+  // ctx.stroke();
 });
 
 function getSizes() {
@@ -43,11 +46,6 @@ function brownianMotion(ctx) {
   const {width, height} = getSizes();
   ctx.strokeStyle = '#ff0000';
 
-  let x = width / 2;
-  let y = height /2 ;
-
-  ctx.moveTo(x, y);
-
   const d = 30;
 
   setInterval(() => {
@@ -58,6 +56,31 @@ function brownianMotion(ctx) {
   } , 100);
 
 }
+
+function showCircle(ctx, x, y, r) {
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, 2 * Math.PI);
+  ctx.stroke();
+
+}
+
+
+function circleAnimate(ctx) {
+  const {width, height} = getSizes();
+  ctx.strokeStyle = '#ff0000';
+
+  const radius = 50;
+
+  let x = radius;
+  showCircle(ctx, x, height / 2, radius);
+  
+  setInterval(() => {
+    x += 5; 
+    showCircle(ctx, x, height / 2, radius);
+  } , 100);
+
+}
+
 
 
 
