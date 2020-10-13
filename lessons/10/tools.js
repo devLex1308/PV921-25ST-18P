@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ctx.lineWidth = 15;
   // ctx.stroke();
   // createChessBoard(ctx, 8);
-  brownianMotion(ctx)
+  brownianMotion(ctx);
 });
 
 function getSizes() {
@@ -35,6 +35,10 @@ function getSizes() {
   }
 }
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
 function brownianMotion(ctx) {
   const {width, height} = getSizes();
   ctx.strokeStyle = '#ff0000';
@@ -44,12 +48,14 @@ function brownianMotion(ctx) {
 
   ctx.moveTo(x, y);
 
+  const d = 30;
+
   setInterval(() => {
-    x += 10;
-    y -= 10; 
+    x += -d/2 + getRandomInt(d);
+    y -= -d/2 + getRandomInt(d); 
     ctx.lineTo(x, y);
     ctx.stroke();
-  } , 1000);
+  } , 100);
 
 }
 
