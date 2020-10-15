@@ -91,6 +91,16 @@ function setOptions(element, start, end) {
   element.innerHTML = htmlOptions;
 }
 
+const getDaysInMonth = function(month,year) {
+  // Here January is 1 based
+  //Day 0 is the last day in the previous month
+ return new Date(year, month, 0).getDate();
+// Here January is 0 based
+// return new Date(year, month+1, 0).getDate();
+};
+
+
+
 setOptions(startYearElement, 1900, 2020);
 setOptions(startMonthElement, 1, 12);
 setOptions(startDayElement, 1, 30);
