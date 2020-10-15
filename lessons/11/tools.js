@@ -13,6 +13,16 @@ console.log("Робота з датою");
 
 const date = new Date();
 
+// date.setDate();
+// date.setFullYear();
+// date.setHours();
+// date.setMilliseconds();
+// date.setMinutes();
+// date.setMonth();
+
+
+
+
 const _date = date.getDate();
 const day = date.getDay();
 const fullyear = date.getFullYear();
@@ -22,6 +32,9 @@ const minutes = date.getMinutes();
 const month = date.getMonth();
 const seconds = date.getSeconds();
 const time = date.getTime();
+
+
+
 
 // console.log(user);
 
