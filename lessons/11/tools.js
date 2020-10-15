@@ -99,11 +99,62 @@ const getDaysInMonth = function(month,year) {
 // return new Date(year, month+1, 0).getDate();
 };
 
+const currentDate = new Date();
 
+const currentYear = currentDate.getFullYear();
+const currentMonth = currentDate.getMonth() + 1;
+const currentDay = currentDate.getDate();
+setOptions(startDayElement, 1, currentDay);
+
+
+
+// 
+// startYearElement.value = currentYear;
+// startMonthElement.value = currentMonth;
+// startDayElement.value = currentDay;
+
+function setSelectedOption(element, value) {
+  const select = element.getElementsByTagName('option');
+  console.log({select});
+  for (let i = 0; i < select.length; i++) {
+      if (select[i].value == value) {
+        select[i].selected = true;
+      } 
+  }
+}
+
+function updateStartDays() {
+  const year = startYearElement.value;
+  const month = startMonthElement.value;
+  const day = getDaysInMonth(month,year);
+  setOptions(startDayElement, 1, day);
+}
+
+startYearElement.addEventListener("change", (e) =>{
+  console.log(e.target.value);
+  updateStartDays();
+});
+
+startMonthElement.addEventListener("change", (e) =>{
+  console.log(e.target.value);
+  updateStartDays();
+});
+
+
+console.log({
+  currentYear,
+  currentMonth,
+  currentDay,
+});
+
+updateStartDays();
 
 setOptions(startYearElement, 1900, 2020);
 setOptions(startMonthElement, 1, 12);
 setOptions(startDayElement, 1, 30);
 
 
+setSelectedOption(startYearElement, currentYear);
+setSelectedOption(startMonthElement, currentMonth);
+setSelectedOption(startDayElement, currentDay);
 
