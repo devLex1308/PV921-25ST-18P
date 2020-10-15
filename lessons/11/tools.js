@@ -82,17 +82,18 @@ const endYearElement = document.querySelector("#endYear");
 const endMonthElement = document.querySelector("#endMonth");
 const endDayElement = document.querySelector("#endDay");
 
-console.log({
-  startYearElement,
-  startMonthElement,
-  startDayElement,
-  endYearElement,
-  endMonthElement,
-  endDayElement,
-});
+function setOptions(element, start, end) {
+  let htmlOptions = "";
+  for (let i = start; i <= end; i++ ) {
+    htmlOptions += `<option value="${i}">${i}</option>`;
+  }
 
+  element.innerHTML = htmlOptions;
+}
 
-
+setOptions(startYearElement, 1900, 2020);
+setOptions(startMonthElement, 1, 12);
+setOptions(startDayElement, 1, 30);
 
 
 
