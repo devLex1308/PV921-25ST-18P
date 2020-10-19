@@ -79,6 +79,7 @@ $(document ).ready(function() {
       console.log(7);
         // Animation complete.
       });
+      $blockForAnimate.fadeIn();
       $showRectangle.html("Приховати блок");
     // }
 

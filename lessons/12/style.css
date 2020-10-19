@@ -1,5 +1,5 @@
 body {
-  background: blue;
+  /*background: blue;*/
 }
 
 #blockForAnimate {
@@ -7,4 +7,10 @@ body {
   width: 300px;
   height: 300px;
   /*display: none;*/
+}
+
+#game td{
+  width: 150px;
+  height: 150px;
+  border: 1px solid black;
 }
