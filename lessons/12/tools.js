@@ -46,3 +46,21 @@ const result = currentCalk.get();
 console.log({
   result
 });
+
+
+$(document ).ready(function() {
+  const testElement = $("#test").html("Гарний текст").addClass("show").addClass("show2");
+  
+
+  // $("#blockForAnimate").hide(500).show(500).hide(1500).show(2500);
+  $("#blockForAnimate").hide();
+
+  $("#showRectangle").click(function () {
+    $("#blockForAnimate").show(500);
+  });
+
+
+  testElement.html("");
+  console.log({testElement});
+  console.log("Браузер повністю завантажив код");
+});
