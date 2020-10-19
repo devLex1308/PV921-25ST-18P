@@ -59,19 +59,28 @@ $(document ).ready(function() {
 
   $showRectangle.click(function () {
     
-    if ($("#blockForAnimate").is(":visible") == true) {
-      $blockForAnimate.hide(500);
-      $showRectangle.html("Показати блок");
-    } else {
+    // if ($("#blockForAnimate").is(":visible") == true) {
+    //   $blockForAnimate.hide(500);
+    //   $showRectangle.html("Показати блок");
+    // } else {
       // $blockForAnimate.show(500);
-      $blockForAnimate.show(500).animate({
-        opacity: 1,
-        backgroundColor: 'red'
-      }, 5000, function() {
+      console.log(5);
+      $blockForAnimate.animate({
+        width: 50,
+        height: 50,
+      }, 500, function() {
+        // Animation complete.
+      console.log(6);
+      }).animate({
+        width: 450,
+        height: 150,
+        opacity: 0.1,
+      }, 500, function() {
+      console.log(7);
         // Animation complete.
       });
       $showRectangle.html("Приховати блок");
-    }
+    // }
 
   });
 
