@@ -13,4 +13,6 @@ body {
   width: 150px;
   height: 150px;
   border: 1px solid black;
+  text-align: center;
+  font-size: 50px;
 }
