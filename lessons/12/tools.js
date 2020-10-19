@@ -49,18 +49,32 @@ console.log({
 
 
 $(document ).ready(function() {
-  const testElement = $("#test").html("Гарний текст").addClass("show").addClass("show2");
-  
+  const $testElement = $("#test").html("Гарний текст").addClass("show").addClass("show2");
 
   // $("#blockForAnimate").hide(500).show(500).hide(1500).show(2500);
-  $("#blockForAnimate").hide();
+  // $("#blockForAnimate").hide();
 
-  $("#showRectangle").click(function () {
-    $("#blockForAnimate").show(500);
+  const $blockForAnimate = $("#blockForAnimate");
+  const $showRectangle = $("#showRectangle");
+
+  $showRectangle.click(function () {
+    
+    if ($("#blockForAnimate").is(":visible") == true) {
+      $blockForAnimate.hide(500);
+      $showRectangle.html("Показати блок");
+    } else {
+      // $blockForAnimate.show(500);
+      $blockForAnimate.show(500).animate({
+        opacity: 1,
+        backgroundColor: 'red'
+      }, 5000, function() {
+        // Animation complete.
+      });
+      $showRectangle.html("Приховати блок");
+    }
+
   });
 
 
-  testElement.html("");
-  console.log({testElement});
   console.log("Браузер повністю завантажив код");
 });
