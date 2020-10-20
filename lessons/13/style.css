@@ -2,7 +2,7 @@ body {
   /*background: blue;*/
 }
 
-#blockForAnimate, #blockForAnimate2 {
+#blockForAnimate, #blockForAnimate2, #draggable {
   background: #888;
   width: 300px;
   height: 300px;
