@@ -2,12 +2,16 @@ body {
   /*background: blue;*/
 }
 
-#blockForAnimate {
+#blockForAnimate, #blockForAnimate2 {
   background: #888;
   width: 300px;
   height: 300px;
   /*display: none;*/
 }
+
+/*#blockForAnimate2 {
+  height: 10px;
+}*/
 
 #game td{
   width: 150px;

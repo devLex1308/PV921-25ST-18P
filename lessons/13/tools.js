@@ -7,7 +7,14 @@ $(document).ready(function() {
 
   $blockForAnimateElement.mouseover(function() {
     $blockForAnimateElement.css("background","green");
+    $("#blockForAnimate2").slideDown(2000);
+
+//     slideUp
+// slideDown
+// slideToggle
+
   }).mouseout(function() {
+    $("#blockForAnimate2").slideUp(2000);
     $blockForAnimateElement.css("background","#888");
   }).click(function(){
     i++;
@@ -16,6 +23,7 @@ $(document).ready(function() {
     i=-3;
     $blockForAnimateElement.html(i);
   });
+  // .fadeTo(5000, 0.0);
 
   // const $userNameElement = $("#userName");
 
