@@ -1,0 +1,18 @@
+body {
+  /*background: blue;*/
+}
+
+#blockForAnimate {
+  background: green;
+  width: 300px;
+  height: 300px;
+  /*display: none;*/
+}
+
+#game td{
+  width: 150px;
+  height: 150px;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 50px;
+}
