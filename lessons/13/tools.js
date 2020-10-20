@@ -17,8 +17,28 @@ $(document).ready(function() {
     $blockForAnimateElement.html(i);
   });
 
-  $("#el1").focus(function(){$(this).attr("value","")});
-  $("#el1").blur(function(){$(this).attr("value","Введите ФИО")});
-  $("#el2").change(function(){ alert("Содержимое данного элемента было изменено.") });
+  const $userNameElement = $("#userName");
+
+  $userNameElement.focus(function(){
+    console.log("focus");
+    $(this).attr("value","")
+  });
+  $userNameElement.blur(function(){
+    console.log("blur");
+    const value = $(this).attr("value");
+    console.log({
+      value,
+      width: $(this).css("width")
+    });
+    $(this).attr("value","Введите ФИО");
+
+    $("#userSuname").focus();
+
+
+  });
+  $userNameElement.change(function(){
+    console.log("change");
+    // alert("Содержимое данного элемента было изменено.")
+  });
 
 });
