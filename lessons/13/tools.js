@@ -7,14 +7,14 @@ $(document).ready(function() {
 
   $blockForAnimateElement.mouseover(function() {
     $blockForAnimateElement.css("background","green");
-    $("#blockForAnimate2").slideDown(2000);
+    // $("#blockForAnimate2").slideDown(2000);
 
 //     slideUp
 // slideDown
 // slideToggle
 
   }).mouseout(function() {
-    $("#blockForAnimate2").slideUp(2000);
+    // $("#blockForAnimate2").slideUp(2000);
     $blockForAnimateElement.css("background","#888");
   }).click(function(){
     i++;
@@ -67,6 +67,13 @@ $(document).ready(function() {
       $middleNameElement.focus();
     }
   });
+
+  $("#submit").click(function() {
+    $('#list').append(`<li> 5 </li>`);
+  });
+
+  $("#par1").prepend("<b>jQuery</b> - это  ");
+  $("#par1").append(" значительно упрощающая написание кода.");
 
 
 
