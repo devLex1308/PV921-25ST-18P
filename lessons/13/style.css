@@ -3,7 +3,7 @@ body {
 }
 
 #blockForAnimate {
-  background: green;
+  background: #888;
   width: 300px;
   height: 300px;
   /*display: none;*/
