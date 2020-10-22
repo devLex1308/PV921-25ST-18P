@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery UI</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../13/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <link href="../13/jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">
+
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">
+    <style type="text/css">
+        div.dragElement {font-size: large; border: thin solid black; padding:16px;
+            width: 8em; text-align: center; background-color: lightgray; margin: 4px }
+    </style>
+    <script type="text/javascript">
+$(function() {
+    
+    $('.dragElement').draggable({
+        axis: "x"
+    }).filter('#dragV').draggable("option", "axis", "y");
+    
+});
+    </script> 
+</head>
+<body>    
+    <div id="dragV" class="dragElement ui-widget ui-corner-all ui-state-error">
+        Перетащить по вертикали
+    </div>
+    <div id="dragH" class="dragElement ui-widget ui-corner-all ui-state-error">
+        Перетащить по горизонтали
+    </div>
+    <table class="new_table" border="2" cellpadding="15">
+  <caption>Свойства взаимодействия Draggable</caption>
+  <tbody><tr>
+    <th>Свойство</th>
+    <th>Описание</th>
+  </tr>
+  <tr>
+    <td><em>axis</em></td>
+    <td>Ограничивает возможности перемещения определенными направлениями. Значение по умолчанию — false, оно означает отсутствие ограничений, но можно также указать значение "x" (перемещение только вдоль оси X) или "y" (перемещение только вдоль оси Y)</td>
+  </tr><tr>
+    <td><em>containment</em></td>
+    <td>Ограничивает местоположение перемещаемого элемента определенной областью экрана. Типы поддерживаемых значений описаны в таблице ниже, при рассмотрении соответствующего примера. Значение по умолчанию — false, оно означает отсутствие ограничений</td>
+  </tr><tr>
+    <td><em>delay</em></td>
+    <td>Определяет время, в течение которого должно осуществляться перетаскивание элемента, прежде чем он переместится. Значение по умолчанию — 0, оно означает отсутствие задержки</td>
+  </tr><tr>
+    <td><em>distance</em></td>
+    <td>Определяет расстояние, на которое пользователь должен перетащить элемент из его начальной позиции, прежде чем он действительно переместится. Значение по умолчанию — 1 пиксель</td>
+  </tr><tr>
+    <td><em>grid</em></td>
+    <td>Осуществляет принудительную привязку перемещаемого элемента к ячейкам сетки. Значение по умолчанию — false, оно означает отсутствие привязки</td>
+  </tr>
+</tbody></table>   
+
+<table class="new_table" border="2" cellpadding="15">
+  <caption>Типы значений опции containment</caption>
+  <tbody><tr>
+    <th>Значение</th>
+    <th>Описание</th>
+  </tr>
+  <tr>
+    <td>Селектор</td>
+    <td>Если указан селектор, перетаскивание перемещаемого элемента ограничивается областью, занимаемой первым подходящим элементом</td>
+  </tr><tr>
+    <td>HTML-элемент</td>
+    <td>Перетаскивание ограничивается областью, занимаемой указанным элементом</td>
+  </tr><tr>
+    <td>Строка</td>
+    <td>Для ограничения области перетаскивания можно указать строку, содержащую одно из следующих значений: parent, document, window</td>
+  </tr><tr>
+    <td>Числовой массив</td>
+    <td>Область перетаскивания можно ограничить, определив ее числовым массивом координат формата [x1, y1, x2, y2]</td>
+  </tr>
+</tbody></table>
+</body>
+</html>

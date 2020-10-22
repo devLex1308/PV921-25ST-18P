@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery UI</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../13/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <link href="../13/jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">
+
+
+    <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">
+    <style type="text/css">
+        #draggable {font-size: x-large; border: thin solid black;
+            width: 190px; text-align: center; padding:10px}
+    </style>
+    <style type="text/css">
+        #draggable, #droppable {font-size: large; border: thin solid black; padding: 10px;
+            width: 100px; text-align: center; background-color: lightgray; margin: 4px;}
+        #droppable {padding: 20px; position: absolute; right: 5px;}
+    </style>
+    <script type="text/javascript">
+$(function() {
+
+    $('#draggable').draggable({
+        start: function() {
+            $('#draggable').text("Перетаскивание...")
+        },
+        stop: function() {
+            $('#draggable').text("Перетащи меня")
+        }
+    });
+
+     $('#droppable').droppable({
+        drop: function() {
+            $('#draggable').text("Оставлено")
+        },
+        activate: function() {
+            $('#droppable').css({
+                border: "medium double green",
+                backgroundColor: "lightGreen"
+            });
+        },
+        deactivate: function() {
+            $('#droppable').css("border", "").css("background-color", "");
+        },
+        over: function() {
+            $('#droppable').css({
+                border: "medium double red",
+                backgroundColor: "red"
+            });
+        },
+        out: function() {
+            $('#droppable').css("border", "").css("background-color", "");
+        }
+    });
+
+});
+    </script>
+</head>
+<body>
+    <div id="droppable">
+        Оставь здесь
+    </div>
+    <div id="draggable" class="ui-widget ui-corner-all ui-state-error">
+        Перетащи меня
+    </div>
+    <table class="new_table" border="2" cellpadding="15">
+  <caption>Методы взаимодействия Draggable</caption>
+  <tbody><tr>
+    <th>Метод</th>
+    <th>Описание</th>
+  </tr>
+  <tr>
+    <td><em>draggable("destroy")</em></td>
+    <td>Полностью удаляет функциональность взаимодействия Draggable из элемента</td>
+  </tr><tr>
+    <td><em>draggable("disable")</em></td>
+    <td>Временно отключает функциональность взаимодействия Draggable для базового элемента</td>
+  </tr><tr>
+    <td><em>draggable("enable")</em></td>
+    <td>Включает ранее отключенную функциональность взаимодействия Draggable для базового элемента</td>
+  </tr><tr>
+    <td><em>draggable("option")</em></td>
+    <td>Позволяет получить или изменить значение одной или нескольких опций</td>
+  </tr>
+</tbody></table>
+<table class="new_table" border="2" cellpadding="15">
+  <caption>События взаимодействия Draggable</caption>
+  <tbody><tr>
+    <th>Событие</th>
+    <th>Описание</th>
+  </tr>
+  <tr>
+    <td><em>create</em></td>
+    <td>Происходит в момент применения взаимодействия Draggable к элементу</td>
+  </tr><tr>
+    <td><em>start</em></td>
+    <td>Происходит в момент начала перетаскивания</td>
+  </tr><tr>
+    <td><em>drag</em></td>
+    <td>Происходит при каждом перемещении мыши в процессе перетаскивания элемента</td>
+  </tr><tr>
+    <td><em>stop</em></td>
+    <td>Происходит в момент отпускания кнопки мыши в процессе перетаскивания</td>
+  </tr>
+</tbody></table>
+<table class="new_table" border="2" cellpadding="15">
+  <caption>События взаимодействия Droppable</caption>
+  <tbody><tr>
+    <th>Событие</th>
+    <th>Описание</th>
+  </tr>
+  <tr>
+    <td><em>create</em></td>
+    <td>Происходит в момент применения взаимодействия Droppable к элементу</td>
+  </tr><tr>
+    <td><em>activate</em></td>
+    <td>Происходит, когда пользователь начинает перетаскивать перемещаемый элемент</td>
+  </tr><tr>
+    <td><em>deactivate</em></td>
+    <td>Происходит, когда пользователь прекращает перетаскивать перемещаемый элемент</td>
+  </tr><tr>
+    <td><em>over</em></td>
+    <td>Происходит, когда пользователь перетаскивает перемещаемый элемент над принимающим элементом (но при условии, что кнопка мыши еще не была отпущена)</td>
+  </tr><tr>
+    <td><em>out</em></td>
+    <td>Происходит, когда пользователь перетаскивает перемещаемый элемент за пределы принимающего элемента</td>
+  </tr><tr>
+    <td><em>drop</em></td>
+    <td>Происходит, когда пользователь оставляет перемещаемый элемент на принимающем элементе</td>
+  </tr>
+</tbody></table>
+
+<table class="new_table" border="2" cellpadding="15">
+  <caption>События взаимодействия Droppable</caption>
+  <tbody><tr>
+    <th>Событие</th>
+    <th>Описание</th>
+  </tr>
+  <tr>
+    <td><em>create</em></td>
+    <td>Происходит в момент применения взаимодействия Droppable к элементу</td>
+  </tr><tr>
+    <td><em>activate</em></td>
+    <td>Происходит, когда пользователь начинает перетаскивать перемещаемый элемент</td>
+  </tr><tr>
+    <td><em>deactivate</em></td>
+    <td>Происходит, когда пользователь прекращает перетаскивать перемещаемый элемент</td>
+  </tr><tr>
+    <td><em>over</em></td>
+    <td>Происходит, когда пользователь перетаскивает перемещаемый элемент над принимающим элементом (но при условии, что кнопка мыши еще не была отпущена)</td>
+  </tr><tr>
+    <td><em>out</em></td>
+    <td>Происходит, когда пользователь перетаскивает перемещаемый элемент за пределы принимающего элемента</td>
+  </tr><tr>
+    <td><em>drop</em></td>
+    <td>Происходит, когда пользователь оставляет перемещаемый элемент на принимающем элементе</td>
+  </tr>
+</tbody></table>
+</body>
+</html>

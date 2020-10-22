@@ -1,0 +1,171 @@
+<!doctype html>
+
+<html lang="ru">
+<head>
+    <meta charset="utf-8"/>
+    <title>Drag and Drop корзина покупок на jQuery | XoZblog</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="header.css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="jquery-ui-1.9.2.custom.min.js"></script>
+</head>
+<body>
+
+<header>
+	<p>Drag and Drop корзина покупок на jQuery <a href="http://xozblog.ru/2013/01/jquery-drag-n-drop-cart/" class="stuts">Перейти к статье на<span>XoZblog.ru</span></a></p>
+</header>
+
+
+<div class="container">
+
+    <section id="product">
+        <ul class="clear">
+            <li data-id="1">
+                <a href="#">
+                    <img src="image/1.png" alt="">
+                    <h3>Монитор Dell 23" UltraSharp U2312HM</h3>
+                    <p>Новый 23-дюймовый обладающий  ярким и насыщенным изображением, которое доступно для просмотра практически под любым углом.</p>
+                </a>
+            </li>
+            <li data-id="2">
+                <a href="#">
+                    <img src="image/2.png" alt="">
+            		<h3>Ноутбук Acer V5-571G-53316G50Mabb(HD)</h3>
+                    <p>Ноутбук подойдёт и как "рабочая лошадка" и как замена домашнему компьютеру благодаря производительной начинке.</p>
+                </a>
+            </li>
+            <li data-id="3">
+                <a href="#">
+                    <img src="image/3.png" alt="">
+            		<h3>Смартфон Acer A9 Cloud Mobile S500</h3>
+                    <p>Смартфон стал флагманом компании, который соединил в себе не только отличную функциональность, но и стал образцом моделей от этого производителя.</p>
+                </a>
+            </li>
+            <li data-id="4">
+                <a href="#">
+                    <img src="image/4.png" alt="">
+            		<h3>Apple iPad mini 16Гб</h3>
+                    <p>Самое главное отличие iPad mini от своих собратьев кроется уже в названии — он меньше, легче и тоньше, а его экран имеет диагональ в 7,9 дюйма.</p>
+                </a>
+            </li>
+            <li data-id="5">
+                <a href="#">
+                    <img src="image/5.png" alt="">
+                    <h3>Nikon D5100 Kit 18-55mm VR</h3>
+                    <p>Преемница популярной модели Nikon D5000, фотокамера D5100 оснащена улучшенным ЖК-монитором с переменным углом наклона.</p>
+                </a>
+            </li>
+            <li data-id="6">
+                <a href="#">
+                    <img src="image/6.png" alt="">
+            		<h3>Телевизор LED 40" (101 см) Samsung UE40ES5507</h3>
+                    <p>Функция AllShare Play позволяет подключить к телевизору другие устройства по беспроводному каналу через сеть DLNA.</p>
+                </a>
+            </li>
+            <li data-id="7">
+                <a href="#">
+                    <img src="image/7.png" alt="">
+            		<h3>Наушники Razer Orca</h3>
+                    <p>Превосходная чистота звука Наденьте их и услышьте весь игровой процесс с кристальной четкостью.</p>
+                </a>
+            </li>
+            <li data-id="8">
+                <a href="#">
+                    <img src="image/8.png" alt="">
+            		<h3>Видеокарта PCI-E MSI GeForce GTX 680 2048MB 256bit GDDR5</h3>
+                    <p>Видеокарта несёт на борту 2 Гбайт памяти и способна выводить изображение посредством двух разъёмов DVI, одного HDMI и одного DisplayPort.</p>
+                </a>
+            </li>
+        </ul>
+  </section>
+
+
+    <aside id="sidebar">
+        <div class="basket">
+            <div class="basket_list">
+                <div class="head">
+                    <span class="name">Наименование</span>
+                    <span class="count">Кол-во</span>
+                </div>
+                <ul>                	 
+                </ul>
+            </div>
+        </div>
+
+    </aside>
+</div>
+
+<script>
+    $(function () {
+
+		// jQuery UI Draggable
+		$("#product li").draggable({
+		
+			// возвращает товар обратно на свое место после перетаскивания
+			revert:true,
+		
+			// как только начинается перетаскивание мы делаем прозрачными остальные объекты
+			// добавляем класс CSS
+			drag:function () {
+				$(this).addClass("active");
+				$(this).closest("#product").addClass("active");
+			},
+		
+			// удаляем CSS класс после перетаскивания
+			stop:function () {
+				$(this).removeClass("active").closest("#product").removeClass("active");
+			}
+		});
+
+        // jQuery Ui Droppable
+		$(".basket").droppable({
+		
+			// CSS класс для корзины, срабатывает в момент начала перетаскивания товара
+			activeClass:"active",
+		
+			// CSS класс для корзины при появлении товара в области корзины
+			hoverClass:"hover",
+		
+			// Определим режим сбрасывания. Сбросить товар можно при приближении к корзине
+			// Возможные другие значения http://api.jqueryui.com/droppable/#option-tolerance
+			tolerance:"touch",
+			drop:function (event, ui) {
+		
+				var basket = $(this),
+						move = ui.draggable,
+						itemId = basket.find("ul li[data-id='" + move.attr("data-id") + "']");
+		
+				// Если такой товар уже есть в корзине то добавляем +1 к количеству
+				if (itemId.html() != null) {
+					itemId.find("input").val(parseInt(itemId.find("input").val()) + 1);
+				}
+				else {
+					// Иначе добавляем товар в корзину (функция ниже)
+					addBasket(basket, move);
+		
+					// И добавляем количество
+					move.find("input").val(parseInt(move.find("input").val()) + 1);
+				}
+			}
+		});
+
+        // Эта функция добавляет новый элемент списка в корзину
+        function addBasket(basket, move) {
+			basket.find("ul").append('<li data-id="' + move.attr("data-id") + '">'
+					+ '<span class="name">' + move.find("h3").html() + '</span>'
+					+ '<input class="count" value="1" type="text">'
+					+ '<button class="delete">&#10005;</button>');
+		}
+
+
+        // Функция для удаления товара из списка 
+        $(".basket ul li button.delete").live("click", function () {
+			$(this).closest("li").remove();
+		});
+
+    });
+</script>
+
+
+</body>
+</html>
