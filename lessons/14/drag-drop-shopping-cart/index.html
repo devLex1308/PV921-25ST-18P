@@ -25,6 +25,7 @@
                     <img src="image/1.png" alt="">
                     <h3>Монитор Dell 23" UltraSharp U2312HM</h3>
                     <p>Новый 23-дюймовый обладающий  ярким и насыщенным изображением, которое доступно для просмотра практически под любым углом.</p>
+                    <p class="price">5000</p>
                 </a>
             </li>
             <li data-id="2">
@@ -32,6 +33,7 @@
                     <img src="image/2.png" alt="">
             		<h3>Ноутбук Acer V5-571G-53316G50Mabb(HD)</h3>
                     <p>Ноутбук подойдёт и как "рабочая лошадка" и как замена домашнему компьютеру благодаря производительной начинке.</p>
+                    <p class="price">25000</p>
                 </a>
             </li>
             <li data-id="3">
@@ -39,6 +41,7 @@
                     <img src="image/3.png" alt="">
             		<h3>Смартфон Acer A9 Cloud Mobile S500</h3>
                     <p>Смартфон стал флагманом компании, который соединил в себе не только отличную функциональность, но и стал образцом моделей от этого производителя.</p>
+                    <p class="price">10000</p>
                 </a>
             </li>
             <li data-id="4">
@@ -46,6 +49,7 @@
                     <img src="image/4.png" alt="">
             		<h3>Apple iPad mini 16Гб</h3>
                     <p>Самое главное отличие iPad mini от своих собратьев кроется уже в названии — он меньше, легче и тоньше, а его экран имеет диагональ в 7,9 дюйма.</p>
+                    <p class="price">3000</p>
                 </a>
             </li>
             <li data-id="5">
@@ -53,6 +57,7 @@
                     <img src="image/5.png" alt="">
                     <h3>Nikon D5100 Kit 18-55mm VR</h3>
                     <p>Преемница популярной модели Nikon D5000, фотокамера D5100 оснащена улучшенным ЖК-монитором с переменным углом наклона.</p>
+                    <p class="price">7777</p>
                 </a>
             </li>
             <li data-id="6">
@@ -60,6 +65,7 @@
                     <img src="image/6.png" alt="">
             		<h3>Телевизор LED 40" (101 см) Samsung UE40ES5507</h3>
                     <p>Функция AllShare Play позволяет подключить к телевизору другие устройства по беспроводному каналу через сеть DLNA.</p>
+                    <p class="price">25999</p>
                 </a>
             </li>
             <li data-id="7">
@@ -67,6 +73,7 @@
                     <img src="image/7.png" alt="">
             		<h3>Наушники Razer Orca</h3>
                     <p>Превосходная чистота звука Наденьте их и услышьте весь игровой процесс с кристальной четкостью.</p>
+                    <p class="price">999</p>
                 </a>
             </li>
             <li data-id="8">
@@ -74,6 +81,7 @@
                     <img src="image/8.png" alt="">
             		<h3>Видеокарта PCI-E MSI GeForce GTX 680 2048MB 256bit GDDR5</h3>
                     <p>Видеокарта несёт на борту 2 Гбайт памяти и способна выводить изображение посредством двух разъёмов DVI, одного HDMI и одного DisplayPort.</p>
+                    <p class="price">1999</p>
                 </a>
             </li>
         </ul>
@@ -87,10 +95,18 @@
                     <span class="name">Наименование</span>
                     <span class="count">Кол-во</span>
                 </div>
-                <ul>                	 
+                <ul>
                 </ul>
             </div>
         </div>
+        Загальна кількість товарів в корзині:
+        <span id="totalCount">
+            0
+        </span> <br/>
+        Загальна вартість:
+        <span id="totalPrice">
+            0
+        </span>
 
     </aside>
 </div>
@@ -100,17 +116,17 @@
 
 		// jQuery UI Draggable
 		$("#product li").draggable({
-		
+
 			// возвращает товар обратно на свое место после перетаскивания
 			revert:true,
-		
+
 			// как только начинается перетаскивание мы делаем прозрачными остальные объекты
 			// добавляем класс CSS
 			drag:function () {
 				$(this).addClass("active");
 				$(this).closest("#product").addClass("active");
 			},
-		
+
 			// удаляем CSS класс после перетаскивания
 			stop:function () {
 				$(this).removeClass("active").closest("#product").removeClass("active");
@@ -119,22 +135,24 @@
 
         // jQuery Ui Droppable
 		$(".basket").droppable({
-		
+
 			// CSS класс для корзины, срабатывает в момент начала перетаскивания товара
 			activeClass:"active",
-		
+
 			// CSS класс для корзины при появлении товара в области корзины
 			hoverClass:"hover",
-		
+
 			// Определим режим сбрасывания. Сбросить товар можно при приближении к корзине
 			// Возможные другие значения http://api.jqueryui.com/droppable/#option-tolerance
 			tolerance:"touch",
 			drop:function (event, ui) {
-		
+
 				var basket = $(this),
 						move = ui.draggable,
 						itemId = basket.find("ul li[data-id='" + move.attr("data-id") + "']");
-		
+
+                console.log({move});
+
 				// Если такой товар уже есть в корзине то добавляем +1 к количеству
 				if (itemId.html() != null) {
 					itemId.find("input").val(parseInt(itemId.find("input").val()) + 1);
@@ -142,7 +160,7 @@
 				else {
 					// Иначе добавляем товар в корзину (функция ниже)
 					addBasket(basket, move);
-		
+
 					// И добавляем количество
 					move.find("input").val(parseInt(move.find("input").val()) + 1);
 				}
@@ -158,7 +176,7 @@
 		}
 
 
-        // Функция для удаления товара из списка 
+        // Функция для удаления товара из списка
         $(".basket ul li button.delete").live("click", function () {
 			$(this).closest("li").remove();
 		});

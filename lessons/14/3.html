@@ -14,12 +14,16 @@
         div.dragElement {font-size: large; border: thin solid black; padding:16px;
             width: 8em; text-align: center; background-color: lightgray; margin: 4px }
         #container { border: medium double black; width: 700px; height: 450px}
+        body {
+            height: 1000px;
+        }
     </style>
     <script type="text/javascript">
 $(function() {
 
     $('.dragElement').draggable({
-        containment: "parent"
+        containment: "window",
+        // parent, document, window
     }).filter('#dragH').draggable("option", "axis", "x");
 
 });
@@ -29,6 +33,21 @@ $(function() {
     <div id="container">
         <div id="dragH" class="dragElement ui-widget ui-corner-all ui-state-error">
             Перетащить по горизонтали
+        </div>
+        <div class="dragElement ui-widget ui-corner-all ui-state-error">
+            Перетащить внутри родителя
+        </div>
+        <div class="dragElement ui-widget ui-corner-all ui-state-error">
+            Перетащить внутри родителя
+        </div>
+        <div class="dragElement ui-widget ui-corner-all ui-state-error">
+            Перетащить внутри родителя
+        </div>
+        <div class="dragElement ui-widget ui-corner-all ui-state-error">
+            Перетащить внутри родителя
+        </div>
+        <div class="dragElement ui-widget ui-corner-all ui-state-error">
+            Перетащить внутри родителя
         </div>
         <div class="dragElement ui-widget ui-corner-all ui-state-error">
             Перетащить внутри родителя

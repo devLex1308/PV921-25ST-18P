@@ -15,15 +15,16 @@
     </style>
     <script type="text/javascript">
 $(function() {
-    
+
     $('.dragElement').draggable({
-        axis: "x"
+        axis: "x",
+        // containment: [0, 0, 100, 100]
     }).filter('#dragV').draggable("option", "axis", "y");
-    
+
 });
-    </script> 
+    </script>
 </head>
-<body>    
+<body>
     <div id="dragV" class="dragElement ui-widget ui-corner-all ui-state-error">
         Перетащить по вертикали
     </div>
@@ -52,7 +53,7 @@ $(function() {
     <td><em>grid</em></td>
     <td>Осуществляет принудительную привязку перемещаемого элемента к ячейкам сетки. Значение по умолчанию — false, оно означает отсутствие привязки</td>
   </tr>
-</tbody></table>   
+</tbody></table>
 
 <table class="new_table" border="2" cellpadding="15">
   <caption>Типы значений опции containment</caption>
