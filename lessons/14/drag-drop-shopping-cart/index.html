@@ -114,6 +114,7 @@
 <script>
     $(function () {
 
+        let totalPrice = 0;
 		// jQuery UI Draggable
 		$("#product li").draggable({
 
@@ -151,7 +152,6 @@
 						move = ui.draggable,
 						itemId = basket.find("ul li[data-id='" + move.attr("data-id") + "']");
 
-                console.log({move});
 
 				// Если такой товар уже есть в корзине то добавляем +1 к количеству
 				if (itemId.html() != null) {
@@ -169,7 +169,15 @@
 
         // Эта функция добавляет новый элемент списка в корзину
         function addBasket(basket, move) {
-			basket.find("ul").append('<li data-id="' + move.attr("data-id") + '">'
+
+            var price = $(move).find('.price').html();
+                // console.log({p: price.html()});
+
+                totalPrice += +price;
+                $("#totalPrice").html(totalPrice);
+
+
+			basket.find("ul").append('<li data-price="'+price+'" data-id="' + move.attr("data-id") + '">'
 					+ '<span class="name">' + move.find("h3").html() + '</span>'
 					+ '<input class="count" value="1" type="text">'
 					+ '<button class="delete">&#10005;</button>');
@@ -178,7 +186,9 @@
 
         // Функция для удаления товара из списка
         $(".basket ul li button.delete").live("click", function () {
-			$(this).closest("li").remove();
+            var uuu = $(this).closest("li");
+            console.log({uuu});
+			uuu.remove();
 		});
 
     });
