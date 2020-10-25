@@ -159,7 +159,9 @@
 
 				// Если такой товар уже есть в корзине то добавляем +1 к количеству
 				if (itemId.html() != null) {
-					itemId.find("input").val(parseInt(itemId.find("input").val()) + 1);
+                    var newValue = parseInt(itemId.find("input").val()) + 1;
+					itemId.find("input").val(newValue);
+                    itemId.find("input").attr("data-old-value", newValue);
 				}
 				else {
 					// Иначе добавляем товар в корзину (функция ниже)
@@ -183,12 +185,14 @@
 
 			basket.find("ul").append('<li data-price="'+price+'" data-id="' + move.attr("data-id") + '">'
 					+ '<span class="name">' + move.find("h3").html() + '</span>'
-					+ '<input class="count" value="1" type="text">'
+					+ '<input class="count" value="1" type="text" data-old-value="1">'
 					+ '<button class="delete">&#10005;</button>');
 
             basket.find("input").on( "change", function () {
                 var coutn = $(this).val();
-                console.log({coutn});
+                var oldValue = $(this).attr("data-old-value");
+                console.log({coutn, oldValue});
+                $(this).attr("data-old-value", coutn);
             });
 		}
 
