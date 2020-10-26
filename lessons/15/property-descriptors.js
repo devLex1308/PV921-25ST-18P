@@ -29,9 +29,41 @@ let obj = {
 
 
 let user = {
-  name: "John",
-  surname: "Smith"
+  _name: null,
+  _surname: null,
+  get name() {
+    console.log(1);
+    return this._name;
+  },
+  set name(newName) {
+    if (typeof newName !== 'string') {
+      return alert("Слід вводити строку");
+    }
+    console.log(2, {newName});
+    this._name = newName;
+  },
+
+  get surname() {
+    return this._surname;
+  },
+  set surname(newSuname) {
+    this._surname = newSuname;
+  },
+
+  get fullName() {
+    return `${this._surname} ${this._name}`;
+  }
+
+  set fullName(newFullName) {
+
+  }
+
 };
+
+user.name = "Іван";
+user.surname = "Котляревський";
+
+console.log(user.fullName);
 
 
 /*
@@ -40,11 +72,11 @@ let user = {
 
 
  */
-function User(fullName) {
-  this.fullName = fullName;
-}
+// function User(fullName) {
+//   this.fullName = fullName;
+// }
 
-const vasya = new User("Іван Котляревський");
+// const vasya = new User("Іван Котляревський");
 
 /*
 Зробіть, щоб були доступні властивості firstName і lastName, причому не тільки на читання, але і на запис, ось так:
@@ -53,10 +85,10 @@ const vasya = new User("Іван Котляревський");
 // const vasya = new User("Іван Котляревський");
 
 // читання firstName/lastName
-alert( vasya.firstName ); // Іван
-alert( vasya.lastName ); // Котляревський
+// alert( vasya.firstName ); // Іван
+// alert( vasya.lastName ); // Котляревський
 
 // запис в lastName
-vasya.lastName = 'Франко';
+// vasya.lastName = 'Франко';
 
-alert( vasya.fullName ); // Іван Франко
+// alert( vasya.fullName ); // Іван Франко
