@@ -39,6 +39,8 @@ const complement = (s1, s2) => difference(s2, s1);
 const cities1 = ['Beijing', 'Kiev'];
 const cities2 = ['Kiev', 'London', 'Baghdad'];
 
+console.log({cities1, cities2});
+
 const operations = [union, intersection, difference, complement];
 
 const results = operations.map(operation => ({

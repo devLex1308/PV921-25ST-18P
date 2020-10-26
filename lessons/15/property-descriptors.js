@@ -52,10 +52,13 @@ let user = {
 
   get fullName() {
     return `${this._surname} ${this._name}`;
-  }
+  },
 
   set fullName(newFullName) {
-
+    const [surname, name, fatherName] = newFullName.split(" ");
+    console.log({newFullName, surname, name, fatherName});
+    this._name = name;
+    this._surname = surname;
   }
 
 };
@@ -63,7 +66,9 @@ let user = {
 user.name = "Іван";
 user.surname = "Котляревський";
 
-console.log(user.fullName);
+user.fullName = "Українка Леся";
+
+console.log(user.fullName, user.name, user.surname);
 
 
 /*

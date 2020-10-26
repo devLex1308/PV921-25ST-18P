@@ -8,14 +8,14 @@ cities.add('Beijing');
 
 cities.delete('Baghdad');
 
-console.dir({ cities });
+console.log({ cities });
 
 if (cities.has('Kiev')) {
   console.log('cities contains Kiev');
 }
 
-console.dir({ keys: cities.keys() });
-console.dir({ values: cities.values() });
-console.dir({ entries: cities.entries() });
+console.log({ keys: cities.keys() });
+console.log({ values: cities.values() });
+console.log({ entries: cities.entries() });
 
-cities.clear();
+// cities.clear();
