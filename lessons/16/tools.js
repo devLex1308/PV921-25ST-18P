@@ -87,23 +87,30 @@ for (key in eagle) {
 eagle2.test.a = "Не кеша";
 
 
-function User() {
-  this.name = "Іван";
-  this.suname = "Котляревський";
+function User(name = '', suname = '') {
+  this.name = name;
+  this.suname = suname;
+
+  this.init = function(name = '', suname = '') {
+    this.name = name;
+    this.suname = suname;
+  }
 
   this.getFullName = function() {
     return `${this.name} ${this.suname}`;
   }
 }
 
+const user = new User("Леся", "Українка");
 
-const user = new User();
+user.init("Тарас", "Шевченко");
 
-function Admin() {
+function Admin(name = '', suname = '') {
+  this.init(name, suname);
   this.isAdmin  = true;
 }
 
-Admin.prototype = new User("Леся", "Українка");
+Admin.prototype = new User();
 
 const admin = new Admin("Ярослав", "Мудрий");
 
