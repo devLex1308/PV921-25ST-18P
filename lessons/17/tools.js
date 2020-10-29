@@ -39,11 +39,11 @@ const someObj = {
 }
 
 
-async function hardCode(x) {
+async function hardCode(x, y) {
   console.log(1);
   await sleep(3);
   console.log(2);
-  return x**2 - 25;
+  return x**2 - 25 + y**3;
 }
 
 const hardCodeWrap = wraper(hardCode);
@@ -54,11 +54,11 @@ async function run() {
 
   const r = await objHardCodeWrap(10);
   console.log({r});
-  const r1 = await hardCodeWrap(5);
+  const r1 = await hardCodeWrap(5, 9);
   console.log({r1});
-  const r2 = await hardCodeWrap(5);
+  const r2 = await hardCodeWrap(5, 9);
   console.log({r2});
-  const r3 = await hardCodeWrap(5);
+  const r3 = await hardCodeWrap(5, 9);
   console.log({r3});
 }
 
