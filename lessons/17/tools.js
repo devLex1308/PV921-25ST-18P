@@ -9,25 +9,34 @@ async function sleep(seconds) {
 
 function wraper(fun) {
 
-  const results = {};
+  const results = new Map();
 
 
   return async function(arg) {
     console.log("Старт функції з аргументами", arg);
 
-    if (results[arg]) {
-      return results[arg];
+    if (results.has(arg)) {
+      return results.get(arg);
     }
 
     const res = await fun(arg);
 
-    results[arg] = res;
+    results.set(arg, res);
 
     console.log("Фініш функції результат", res);
     return res;
   }
 }
 
+
+
+const someObj = {
+  var: 25,
+  hardCode: async function (x) {
+    await sleep(3);
+    return x**2 - this.var;
+  }
+}
 
 
 async function hardCode(x) {
@@ -39,6 +48,9 @@ async function hardCode(x) {
 const hardCodeWrap = wraper(hardCode);
 
 async function run() {
+
+  const r = await someObj.hardCode(5);
+  console.log({r});
   const r1 = await hardCodeWrap(5);
   console.log({r1});
   const r2 = await hardCodeWrap(5);
