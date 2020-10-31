@@ -1,0 +1,59 @@
+1) Реалізуйте клас Worker (Працівник), який буде мати такі властивості: name (ім'я), surname (прізвище), rate (ставка за день роботи), days (кількість відпрацьованих днів). Також клас повинен мати метод getSalary (), який буде виводити зарплату працівника. Зарплата - це добуток ставки rate на кількість відпрацьованих днів days.
+
+Приклад роботи:
+
+const worker = new Worker ( 'Іван', 'Іванов', 10, 31);
+
+console.log (worker.name); // виведе 'Іван'
+console.log (worker.surname); // виведе 'Іванов'
+console.log (worker.rate); // виведе 10
+console.log (worker.days); // виведе 31
+console.log (worker.getSalary ()); // виведе 310 - тобто 10 * 31
+
+1.1) Cтворіть двох робочих і знайдіть суму їх зарплат.
+
+2) Модифікуйте клас Worker з попередньої задачі наступним чином: зробіть всі його властивості приватними, а для їх читання зробіть методи-геттери.
+
+Приклад роботи:
+
+const worker = new Worker ( 'Іван', 'Іванов', 10, 31);
+
+console.log (worker.getName ()); // виведе 'Іван'
+console.log (worker.getSurname ()); // виведе 'Іванов'
+console.log (worker.getRate ()); // виведе 10
+console.log (worker.getDays ()); // виведе 31
+console.log (worker.getSalary ()); // виведе 310 - тобто 10 * 31
+
+3) Модифікуйте клас Worker з попередньої задачі наступним чином: для властивості rate і для властивості days зробіть ще і методи-сеттери.
+
+Приклад роботи:
+
+const worker = new Worker ( 'Іван', 'Іванов', 10, 31);
+
+console.log (worker.getRate ()); // виведе 10
+console.log (worker.getDays ()); // виведе 31
+console.log (worker.getSalary ()); // виведе 310 - тобто 10 * 31
+
+// Тепер використовуємо сетер:
+worker.setRate (20); // збільшимо ставку
+worker.setDays (10); // зменшимо дні
+console.log (worker.getSalary ()); // виведе 200 - тобто 20 * 10
+
+4) Реалізуйте клас MyString, який матиме наступні методи: метод reverse (), який параметром приймає рядок, а повертає його в перевернутому вигляді, метод ucFirst (), який параметром приймає рядок, а повертає цю ж його, зробивши першу літери в рядку великою та метод ucWords, який приймає рядок і робить капіталізації першої літери кожного слова цього рядка.
+
+Приклад:
+
+const str = new MyString ();
+
+console.log (str.reverse ( 'abcde')); // виведе 'edcba'
+console.log (str.ucFirst ( 'abcde')); // виведе 'Abcde'
+console.log (str.ucWords ( 'abcde abcde abcde')); // виведе 'Abcde Abcde Abcde'
+
+5) Реалізуйте клас Validator, який буде перевіряти рядки. Наприклад, у нього буде метод isEmail параметром приймає рядок і перевіряє, чи є він коректним емейлом чи ні. Якщо є - повертає true, якщо не є - то false. Крім того, клас матиме наступні методи: метод isDomain для перевірки домену, метод isDate для перевірки дати і метод isPhone для перевірки телефону:
+
+const validator = new Validator ();
+
+console.log (validator.isEmail ('php@i.ua '));
+console.log (validator.isDomain ( 'itc.ua'));
+console.log (validator.isDate ('12.05.2020 '));
+console.log (validator.isPhone ( '+ 380 (67) 817-68-92'));
