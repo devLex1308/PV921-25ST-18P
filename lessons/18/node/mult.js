@@ -3,6 +3,4 @@ function mult(a, b) {
 }
 
 
-module.exports = {
-  mult,
-}
+export mult;

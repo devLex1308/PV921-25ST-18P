@@ -3,6 +3,4 @@ function div(a, b) {
 }
 
 
-module.exports = {
-  div,
-}
+export div;

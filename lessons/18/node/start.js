@@ -1,7 +1,7 @@
-const {sum} = require('./sum.js');
-const {sub} = require('./sub.js');
-const {mult} = require('./mult.js');
-const {div} = require('./div.js');
+import { sum } from './sum.js';
+import { sub } from './sub.js';
+import { mult } from './mult.js';
+import { div } from './div.js';
 
 // console.log(result);
 

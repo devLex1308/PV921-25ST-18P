@@ -3,6 +3,4 @@ function sub(a, b) {
 }
 
 
-module.exports = {
-  sub,
-}
+export sub;
