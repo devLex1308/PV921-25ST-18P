@@ -24,3 +24,10 @@ console.log({user, userClone, s3}, s3 == s4, s3 == s5);
 console.log(user[Symbol("start")]);
 
 // alert(userString);
+
+try {
+  console.log(window);
+
+} catch (e) {
+
+}
