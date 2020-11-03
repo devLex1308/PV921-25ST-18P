@@ -1,10 +1,28 @@
 const http = require('http');
 const port = 3000;
 
+//stations - виводимо всі станції
+//stations/54 - виводимо станцію з id
+
+
+
 const requestHandler = (request, response) => {
 
+  const ursArr = request.url.split("/");
+  let data = "Not found";
+  let status = 404;
+  console.log(ursArr);
+  switch (ursArr[1]) {
+    case 'stations': {
+      data = "Список всіх станцій";
+      status = 200;
+    }
 
-  response.end("Some page");
+  }
+
+  // console.log(request.url);
+  response.statusCode = status;
+  response.end(data);
 }
 
 const server = http.createServer(requestHandler);
