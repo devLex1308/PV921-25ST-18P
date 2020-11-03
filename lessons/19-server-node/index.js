@@ -1,7 +1,10 @@
 const http = require('http');
 const { getTemplate } = require('./template.js');
-const { store } = require('./store.js');
 const { getStationHtml } = require('./src/station.js');
+const {
+  getStore,
+  saveStore,
+} = require('./storeActions.js');
 
 const port = 3000;
 
@@ -14,21 +17,25 @@ const port = 3000;
 
 const requestHandler = (request, response) => {
 
-  const ursArr = request.url.split("/");
-  let html = "Not found";
-  let status = 404;
-  console.log(ursArr);
-  switch (ursArr[1]) {
-    case 'stations': {
-      html = getStationHtml(ursArr, store);
-      status = 200;
+  getStore(function (store) {
+
+    const ursArr = request.url.split("/");
+    let html = "Not found";
+    let status = 404;
+    console.log(ursArr);
+    switch (ursArr[1]) {
+      case 'stations': {
+        html = getStationHtml(ursArr, store);
+        status = 200;
+      }
+
     }
 
-  }
+    // console.log(request.url);
+    response.statusCode = status;
+    response.end(getTemplate(html));
+  })
 
-  // console.log(request.url);
-  response.statusCode = status;
-  response.end(getTemplate(html));
 }
 
 const server = http.createServer(requestHandler);
