@@ -1,10 +1,11 @@
 const http = require('http');
 const { getTemplate } = require('./template.js');
 const { store } = require('./store.js');
+const { getStationHtml } = require('./src/station.js');
 
 const port = 3000;
 
-console.log(store);
+// console.log(store);
 
 //stations - виводимо всі станції
 //stations/54 - виводимо станцію з id
@@ -14,12 +15,12 @@ console.log(store);
 const requestHandler = (request, response) => {
 
   const ursArr = request.url.split("/");
-  let data = "Not found";
+  let html = "Not found";
   let status = 404;
   console.log(ursArr);
   switch (ursArr[1]) {
     case 'stations': {
-      data = "Список всіх станцій";
+      html = getStationHtml(ursArr, store);
       status = 200;
     }
 
@@ -27,7 +28,7 @@ const requestHandler = (request, response) => {
 
   // console.log(request.url);
   response.statusCode = status;
-  response.end(getTemplate(data));
+  response.end(getTemplate(html));
 }
 
 const server = http.createServer(requestHandler);
