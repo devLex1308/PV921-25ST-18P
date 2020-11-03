@@ -31,10 +31,8 @@ function (request, response) {
         }
     });
     request.on('end', function () {
-
         var POST = qs.parse(body);
         // use POST
-
     });
   }
 }
