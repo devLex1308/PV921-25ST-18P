@@ -17,7 +17,12 @@ const port = 3000;
 
 const requestHandler = (request, response) => {
 
-  getStore(function (store) {
+  getStore(function (err, store) {
+
+    if (err) {
+      status = 500;
+      html = "Помилка підключення до бази даних!";
+    }
 
     const ursArr = request.url.split("/");
     let html = "Not found";
