@@ -22,6 +22,14 @@ function saveStore(store, f) {
   });
 }
 
+function addStation(stationName) {
+  // const store;
+  // const keys = Object.keys(store.stations);
+  // const newKey = keys[keys.length-1] + 1;
+  // store.stations[newKey] = stationName;
+}
+
+
 module.exports = {
   getStore,
   saveStore,

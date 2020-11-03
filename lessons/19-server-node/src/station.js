@@ -9,10 +9,13 @@ function getStationHtml(routArr, store) {
       `;
   }
   let s = ``;
-  for (let i = 1; i <= 7; i++)
-  {
-  	s +=`<li>  		<a href="stations/${i}">${store.stations[i]}</a>  	</li>`;
-  }
+  Object.keys(store.stations).forEach(stationId => {
+  	s +=`
+      <li>
+        <a href="stations/${stationId}">${store.stations[stationId]}</a>
+      </li>`;
+  });
+
   return `
   <ul>
   	${s}
