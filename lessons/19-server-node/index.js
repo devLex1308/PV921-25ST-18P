@@ -1,6 +1,7 @@
 const http = require('http');
 const { getTemplate } = require('./template.js');
 const { getStationHtml } = require('./src/station.js');
+const { getRoutsHtml } = require('./src/routs.js');
 const {
   getStore,
   saveStore,
@@ -32,8 +33,13 @@ const requestHandler = (request, response) => {
       case 'stations': {
         html = getStationHtml(ursArr, store);
         status = 200;
+        break;
       }
-
+      case 'rout': {
+        html = getRoutsHtml(ursArr, store);
+        status = 200;
+        break;
+      }
     }
 
     // console.log(request.url);
