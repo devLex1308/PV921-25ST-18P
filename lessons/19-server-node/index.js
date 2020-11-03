@@ -1,5 +1,8 @@
 const http = require('http');
+const { getTemplate } = require('./template.js');
+
 const port = 3000;
+
 
 //stations - виводимо всі станції
 //stations/54 - виводимо станцію з id
@@ -22,7 +25,7 @@ const requestHandler = (request, response) => {
 
   // console.log(request.url);
   response.statusCode = status;
-  response.end(data);
+  response.end(getTemplate(data));
 }
 
 const server = http.createServer(requestHandler);
