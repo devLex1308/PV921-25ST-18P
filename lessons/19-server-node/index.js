@@ -1,8 +1,10 @@
 const http = require('http');
 const { getTemplate } = require('./template.js');
+const { store } = require('./store.js');
 
 const port = 3000;
 
+console.log(store);
 
 //stations - виводимо всі станції
 //stations/54 - виводимо станцію з id
