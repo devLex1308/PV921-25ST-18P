@@ -7,6 +7,16 @@ function getTemplate(html) {
   <meta charset="UTF-8">
 </head>
 <body>
+  <header>
+    <ul>
+      <li>
+        <a href="/" >Головна</a>
+        <a href="/stations" >Станції</a>
+        <a href="/rout" >Маршрути</a>
+      </li>
+    </ul>
+  </header>
+
   ${html}
 </body>
 </html>`

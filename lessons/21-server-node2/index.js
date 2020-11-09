@@ -24,6 +24,25 @@ const requestHandler = (request, response) => {
   let html = "Not found";
   let status = 404;
 
+  if (request.method == 'POST') {
+    let body = '';
+    request.on('data', function (data) {
+
+        console.log(data);
+        body += data;
+        // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
+        if (body.length > 1e6) {
+            // FLOOD ATTACK OR FAULTY CLIENT, NUKE REQUEST
+            request.connection.destroy();
+        }
+    });
+    request.on('end', function () {
+        console.log({body});
+        // use POST
+    });
+    return;
+  }
+
   if (ursArr[1].match(/.css$/)) {
     const filename = `./css/${ursArr[1]}`;
     fs.readFile(filename, "utf-8", function(err, data) {

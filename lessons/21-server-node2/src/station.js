@@ -1,6 +1,6 @@
 
 function getStationHtml(routArr, store) {
-  console.log(routArr[1], routArr[2], store.stations[routArr[2]]);
+  // console.log(routArr[1], routArr[2], store.stations[routArr[2]]);
   if (routArr[1] && routArr[2]) {
     return `
       <a href="/stations">назад</a>
@@ -8,7 +8,12 @@ function getStationHtml(routArr, store) {
       Зупинка з ідентифікатором ${routArr[2]} ${store.stations[routArr[2]].name}
       `;
   }
-  let s = ``;
+  let s = `
+    <form action="/stations" method="post">
+      <input type="name" value="">
+      <input type="submit">
+    </form>
+  `;
   Object.keys(store.stations).forEach(stationId => {
   	s +=`
       <li>
