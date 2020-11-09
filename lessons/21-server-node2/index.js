@@ -1,4 +1,5 @@
 const http = require('http');
+const fs = require('fs');
 const { getTemplate } = require('./template.js');
 const { getStationHtml } = require('./src/station.js');
 const { getRoutsHtml } = require('./src/routs.js');
@@ -29,6 +30,8 @@ const requestHandler = (request, response) => {
     const ursArr = request.url.split("/");
     let html = "Not found";
     let status = 404;
+
+
     console.log(ursArr);
     switch (ursArr[1]) {
       case 'stations': {
@@ -43,9 +46,25 @@ const requestHandler = (request, response) => {
       }
     }
 
-    // console.log(request.url);
-    response.statusCode = status;
-    response.end(getTemplate(html));
+    if (ursArr[1].match(/.css$/)) {
+      const filename = `./css/${ursArr[1]}`;
+      fs.readFile(filename, "utf-8", function(err, data) {
+        if (err) {
+          console.log({filename, err});
+          response.statusCode = 404;
+          response.end();
+          return;
+        }
+        response.setHeader('Content-Type', 'text/css');
+        response.statusCode = 200;
+        response.end(data);
+
+      });
+
+    } else {
+      response.statusCode = status;
+      response.end(getTemplate(html));
+    }
   })
 
 }
