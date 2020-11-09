@@ -5,14 +5,14 @@ function getStationHtml(routArr, store) {
     return `
       <a href="/stations">назад</a>
       <br>
-      Зупинка з ідентифікатором ${routArr[2]} ${store.stations[routArr[2]]}
+      Зупинка з ідентифікатором ${routArr[2]} ${store.stations[routArr[2]].name}
       `;
   }
   let s = ``;
   Object.keys(store.stations).forEach(stationId => {
   	s +=`
       <li>
-        <a href="stations/${stationId}">${store.stations[stationId]}</a>
+        <a href="stations/${stationId}">${store.stations[stationId].name}</a>
       </li>`;
   });
 
