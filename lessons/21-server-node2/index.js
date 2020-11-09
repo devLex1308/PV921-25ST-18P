@@ -9,6 +9,36 @@ const {
   saveStore,
 } = require('./storeActions.js');
 
+
+function addStation(station, c) {
+  getStore(function (err, store) {
+
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    const { stations } = store;
+
+    const keys = Object.keys(stations);
+
+    const maxKey = Math.max(...keys);
+    const newKey = maxKey + 1;
+
+    stations[newKey] = { name: station };
+
+    saveStore(store, function(err) {
+      if (err) {
+        c(err);
+        return;
+      }
+
+      c(false);
+    });
+  });
+}
+
+
 const port = 3000;
 
 // console.log(store);
@@ -38,7 +68,21 @@ const requestHandler = (request, response) => {
     });
     request.on('end', function () {
         console.log({body});
+
+        const sendData = JSON.parse(body);
+
+        console.log({sendData, r: ursArr[1]})
         // use POST
+        switch (ursArr[1]) {
+          case 'api': {
+            addStation(sendData.station, function (err) {
+              response.statusCode = 200;
+              response.end();
+            });
+            return;
+          }
+        }
+
         response.statusCode = 200;
         response.end();
     });
