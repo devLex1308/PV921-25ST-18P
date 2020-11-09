@@ -1,6 +1,6 @@
 
 function getStationHtml(routArr, store) {
-
+  console.log(routArr[1], routArr[2], store.stations[routArr[2]]);
   if (routArr[1] && routArr[2]) {
     return `
       <a href="/stations">назад</a>

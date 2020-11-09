@@ -3,6 +3,7 @@ const fs = require('fs');
 const { getTemplate } = require('./template.js');
 const { getStationHtml } = require('./src/station.js');
 const { getRoutsHtml } = require('./src/routs.js');
+const { getIndexHtml } = require('./src/index.js');
 const {
   getStore,
   saveStore,
@@ -19,6 +20,27 @@ const port = 3000;
 
 const requestHandler = (request, response) => {
 
+  const ursArr = request.url.split("/");
+  let html = "Not found";
+  let status = 404;
+
+  if (ursArr[1].match(/.css$/)) {
+    const filename = `./css/${ursArr[1]}`;
+    fs.readFile(filename, "utf-8", function(err, data) {
+      if (err) {
+        console.log({filename, err});
+        response.statusCode = 404;
+        response.end();
+        return;
+      }
+      response.setHeader('Content-Type', 'text/css');
+      response.statusCode = 200;
+      response.end(data);
+
+    });
+    return;
+  }
+
   getStore(function (err, store) {
 
     if (err) {
@@ -27,12 +49,6 @@ const requestHandler = (request, response) => {
       html = "Помилка підключення до бази даних!";
     }
 
-    const ursArr = request.url.split("/");
-    let html = "Not found";
-    let status = 404;
-
-
-    console.log(ursArr);
     switch (ursArr[1]) {
       case 'stations': {
         html = getStationHtml(ursArr, store);
@@ -44,27 +60,15 @@ const requestHandler = (request, response) => {
         status = 200;
         break;
       }
+      case "" : {
+        html = getIndexHtml(ursArr, store);
+        status = 200;
+        break;
+      }
     }
 
-    if (ursArr[1].match(/.css$/)) {
-      const filename = `./css/${ursArr[1]}`;
-      fs.readFile(filename, "utf-8", function(err, data) {
-        if (err) {
-          console.log({filename, err});
-          response.statusCode = 404;
-          response.end();
-          return;
-        }
-        response.setHeader('Content-Type', 'text/css');
-        response.statusCode = 200;
-        response.end(data);
-
-      });
-
-    } else {
-      response.statusCode = status;
-      response.end(getTemplate(html));
-    }
+    response.statusCode = status;
+    response.end(getTemplate(html));
   })
 
 }
