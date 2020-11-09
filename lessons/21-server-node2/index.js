@@ -39,6 +39,8 @@ const requestHandler = (request, response) => {
     request.on('end', function () {
         console.log({body});
         // use POST
+        response.statusCode = 200;
+        response.end();
     });
     return;
   }
