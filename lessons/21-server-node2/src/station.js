@@ -9,10 +9,10 @@ function getStationHtml(routArr, store) {
       `;
   }
   let s = `
-    <form>
-      <input type="name" value="">
+    <div>
+      <input id="addStation" type="name" value="">
       <button onclick="createStation();">ок</button>
-    </form>
+    </div>
     <script src="stations.js"></script>
   `;
   Object.keys(store.stations).forEach(stationId => {
