@@ -60,6 +60,20 @@ const requestHandler = (request, response) => {
 
     });
     return;
+  } else if (ursArr[1].match(/.js$/)) {
+    const filename = `./js/${ursArr[1]}`;
+    fs.readFile(filename, "utf-8", function(err, data) {
+      if (err) {
+        console.log({filename, err});
+        response.statusCode = 404;
+        response.end();
+        return;
+      }
+      response.setHeader('Content-Type', 'text/javascript');
+      response.statusCode = 200;
+      response.end(data);
+    });
+    return;
   }
 
   getStore(function (err, store) {
