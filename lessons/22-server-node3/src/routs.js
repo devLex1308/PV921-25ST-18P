@@ -2,10 +2,28 @@
 function getRoutsHtml(routArr, store) {
 
   if (routArr[1] && routArr[2]) {
+
+    const rout = store.routs[routArr[2]];
+    let stationList = "";
+    rout.waybill.forEach(([stationId, time]) => {
+      stationList += `
+        <li> ${store.stations[stationId] && store.stations[stationId].name
+          ? store.stations[stationId].name
+          : ''
+        } </li>
+      `;
+    });
+
+    stationList = `
+      <ul>
+        ${stationList}
+      </ul>
+    `
     return `
       <a href="/rout">назад</a>
       <br>
       Маршрут з ідентифікатором ${routArr[2]} ${store.routs[routArr[2]].name}
+        ${stationList}
       `;
   }
   let s = `
