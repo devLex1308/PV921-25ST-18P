@@ -8,16 +8,24 @@ function getRoutsHtml(routArr, store) {
       Маршрут з ідентифікатором ${routArr[2]} ${store.routs[routArr[2]].name}
       `;
   }
-  let s = ``;
+  let s = `
+    <div>
+      <input id="addRoutNumber" placeholder="Номер" type="text" value="">
+      <input id="addRoutName" placeholder="Назва маршруту" type="text" value="">
+      <button onclick="createRout();">ок</button>
+    </div>
+    <script src="/js/rout.js"></script>
+  `;
   Object.keys(store.routs).forEach(routsId => {
   	s +=`
-      <li>
+      <li id="rout-${routsId}">
         <a href="rout/${routsId}">${store.routs[routsId].name}</a>
+        <button onclick="deleteRout(${routsId});">X</button>
       </li>`;
   });
 
   return `
-  <ul>
+  <ul id="rout-list">
   	${s}
   </ul>`;
 }

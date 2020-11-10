@@ -13,6 +13,13 @@ const {
   deleteStation,
   editStation
 } = require('./actions/station.actions.js');
+const {
+  addRout,
+  deleteRout,
+  editRout,
+} = require('./actions/rout.actions.js');
+
+
 
 const port = 3000;
 
@@ -124,8 +131,16 @@ const requestHandler = (request, response) => {
                   ? deleteStation
                   : null;
             break;
-
-
+          }
+          case 'rout': {
+            runAction = request.method == 'POST'
+              ? addRout
+              : request.method == 'PUT'
+                ? editRout
+                : request.method == 'DELETE'
+                  ? deleteRout
+                  : null;
+            break;
           }
         }
 
