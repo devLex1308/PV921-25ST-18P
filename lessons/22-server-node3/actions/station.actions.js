@@ -80,7 +80,7 @@ function editStation(data, c) {
         return;
       }
 
-      c(false, {id: newKey});
+      c(false, {id});
     });
   });
 }
