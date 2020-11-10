@@ -14,7 +14,9 @@ async function createStation() {
     input.value = "";
     const ul = document.querySelector("#stations");
     const li = document.createElement("li");
-    li.innerHTML = `<a href="stations/${res.data.id}">${name}</a>`;
+    li.id = `station-${res.data.id}`;
+    li.innerHTML = `<a href="stations/${res.data.id}">${name}</a>
+      <button onclick="deleteStantion(${res.data.id});">X</button>`;
     ul.appendChild(li);
 
     if (res.status) {
@@ -31,6 +33,8 @@ async function createStation() {
 
 async function deleteStation(id) {
 
+  // TODO десь взяти id
+
   try {
 
     if (!id) {
@@ -38,9 +42,11 @@ async function deleteStation(id) {
     }
 
     const res = await api("station", "DELETE", {id});
-
+    const ul = document.querySelector("#stations");
+    const li = document.querySelector(`#station-${res.data.id}`);
+    console.log(li, `#station-${res.data.id}`);
+    ul.removeChild(li);
     if (res.status) {
-      // location.reload();
       return res.data;
     }
 
