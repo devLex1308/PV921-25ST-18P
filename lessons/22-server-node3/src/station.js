@@ -19,11 +19,12 @@ function getStationHtml(routArr, store) {
   	s +=`
       <li>
         <a href="stations/${stationId}">${store.stations[stationId].name}</a>
+        <button onclick="deleteStation(${stationId});">x</button>
       </li>`;
   });
 
   return `
-  <ul>
+  <ul id="stations">
   	${s}
   </ul>`;
 }

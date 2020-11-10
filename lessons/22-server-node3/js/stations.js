@@ -28,10 +28,7 @@ async function createStation() {
   }
 }
 
-async function deleteStation() {
-
-  // TODO десь взяти id
-  const id = null;
+async function deleteStation(id) {
 
   try {
 
