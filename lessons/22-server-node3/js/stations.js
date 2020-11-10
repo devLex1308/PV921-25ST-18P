@@ -58,11 +58,11 @@ async function deleteStation(id) {
   }
 }
 
-async function editStation() {
+async function editStation(id) {
 
   // TODO десь взяти id
-  const id = null;
-  const name = null;
+  const inputElement = document.querySelector("#editStation");
+  const name = inputElement.value;
 
   try {
 
@@ -77,6 +77,7 @@ async function editStation() {
     const res = await api("station", "PUT", {id, name});
 
     if (res.status) {
+      alert("Зміни збережено!");
       return res.data;
     }
 

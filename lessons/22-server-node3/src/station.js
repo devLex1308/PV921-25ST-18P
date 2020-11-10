@@ -4,8 +4,11 @@ function getStationHtml(routArr, store) {
   if (routArr[1] && routArr[2]) {
     return `
       <a href="/stations">назад</a>
+      <script src="/js/stations.js"></script>
       <br>
-      Зупинка з ідентифікатором ${routArr[2]} ${store.stations[routArr[2]].name}
+      Зупинка з ідентифікатором
+      <input id="editStation" type="text" value="${store.stations[routArr[2]].name}">
+      <button onclick="editStation(${routArr[2]});">ok</button>
       `;
   }
   let s = `
