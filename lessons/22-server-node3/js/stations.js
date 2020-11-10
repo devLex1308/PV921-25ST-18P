@@ -10,7 +10,8 @@ async function createStation() {
     }
 
     const res = await api("station", "POST", {name});
-    console.log(res);
+    const input = document.querySelector("input");
+    input.value = "";
     const ul = document.querySelector("#stations");
     const li = document.createElement("li");
     li.innerHTML = `<a href="stations/${res.data.id}">${name}</a>`;
