@@ -10,16 +10,16 @@ async function createStation() {
     }
 
     const res = await api("station", "POST", {name});
-    const input = document.querySelector("input");
-    input.value = "";
-    const ul = document.querySelector("#stations");
-    const li = document.createElement("li");
-    li.id = `station-${res.data.id}`;
-    li.innerHTML = `<a href="stations/${res.data.id}">${name}</a>
-      <button onclick="deleteStantion(${res.data.id});">X</button>`;
-    ul.appendChild(li);
 
     if (res.status) {
+      const input = document.querySelector("input");
+      input.value = "";
+      const ul = document.querySelector("#stations");
+      const li = document.createElement("li");
+      li.id = `station-${res.data.id}`;
+      li.innerHTML = `<a href="stations/${res.data.id}">${name}</a>
+        <button onclick="deleteStantion(${res.data.id});">X</button>`;
+      ul.appendChild(li);
       return res.data;
     }
 
