@@ -3,7 +3,7 @@ function getStationHtml(routArr, store) {
   // console.log(routArr[1], routArr[2], store.stations[routArr[2]]);
   if (routArr[1] && routArr[2]) {
     return `
-      <a href="/js/stations">назад</a>
+      <a href="/stations">назад</a>
       <br>
       Зупинка з ідентифікатором ${routArr[2]} ${store.stations[routArr[2]].name}
       `;
