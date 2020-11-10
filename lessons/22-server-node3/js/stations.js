@@ -39,6 +39,7 @@ async function deleteStation(id) {
     const res = await api("station", "DELETE", {id});
 
     if (res.status) {
+      // location.reload();
       return res.data;
     }
 
