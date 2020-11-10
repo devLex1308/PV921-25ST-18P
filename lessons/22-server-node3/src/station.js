@@ -17,9 +17,9 @@ function getStationHtml(routArr, store) {
   `;
   Object.keys(store.stations).forEach(stationId => {
   	s +=`
-      <li>
+      <li id="station-${stationId}">
         <a href="stations/${stationId}">${store.stations[stationId].name}</a>
-        <button onclick="deleteStation(${stationId});">x</button>
+        <button onclick="deleteStation(${stationId});">X</button>
       </li>`;
   });
 
