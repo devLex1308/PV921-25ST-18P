@@ -1,6 +1,10 @@
 import React from "react";
 // import "./styles.css";
 
+
+// https://ru.reactjs.org/docs/getting-started.html
+// https://ru.reactjs.org/tutorial/tutorial.html
+
 export default function App(props) {
   /*
   деструктурируем объект props
