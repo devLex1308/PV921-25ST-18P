@@ -1,4 +1,4 @@
-import React from "react";
+import {Component} from "react";
 
 /*
 Классовые компоненты это классы.
@@ -6,7 +6,10 @@ import React from "react";
 Внутри класса должен быть реализован метод render
 Он обязан возвращать UI нашего компонента
 */
-export default class App extends React.Component {
+
+// console.log({Component});
+
+export default class App extends Component {
   /*
   Обязательный метод render
   Он должен быть реализован в любом классовом компоненте

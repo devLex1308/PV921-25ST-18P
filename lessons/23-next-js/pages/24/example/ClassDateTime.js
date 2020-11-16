@@ -11,7 +11,7 @@ class CurrentTime extends React.Component {
     return <h2>{new Date().toLocaleTimeString()}</h2>;
   }
 }
-export default class App extends React.Component {
+export default class ClassDateTime extends React.Component {
   render() {
     return (
       <div className="App">

@@ -2,7 +2,11 @@ import "./24/example/styles.css";
 import Menu from "../components/menu.js"
 
 
-function MyApp({ Component, pageProps }) {
+function MyApp(page) {
+
+  console.log(page);
+  const { Component, pageProps } = page;
+
   return (
     <div>
       <Menu />

@@ -6,9 +6,25 @@ function handlerClick() {
   alert("You clicked the button");
 }
 */
-export default function App() {
-  // Стрелочная функция в качестве обработчика
-  const handlerClick = () => alert("Hello from arrow function!");
+export default class App extends React.Component {
 
-  return <button onClick={handlerClick}>Click me!</button>;
+  state = {
+    count: 0,
+    name: "Bogdan",
+  }
+
+  handlerClick = () => {
+    const { count } = this.state;
+    this.setState({
+      count: count + 1,
+    });
+  };
+
+  render() {
+     // Стрелочная функция в качестве обработчика
+
+    console.log(this);
+
+    return <button onClick={this.handlerClick}>{this.state.count}</button>;
+  }
 }
