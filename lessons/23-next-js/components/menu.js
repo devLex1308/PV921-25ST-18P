@@ -50,6 +50,11 @@ function Menu(props) {
           <a >Quote</a>
         </Link>
       </li>
+      <li>
+        <Link href="/24/example/clock">
+          <a >clock</a>
+        </Link>
+      </li>
       </ul>
     </div>
   );
