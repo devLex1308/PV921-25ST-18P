@@ -3,7 +3,8 @@ import Link from 'next/link'
 function Menu(props) {
 
   return (
-    <ul>
+    <div className="menu">
+      <ul>
       <li>
         <Link href="/24/example/ButtonClickHandler">
           <a >ButtonClickHandler</a>
@@ -49,7 +50,8 @@ function Menu(props) {
           <a >Quote</a>
         </Link>
       </li>
-    </ul>
+      </ul>
+    </div>
   );
 }
 

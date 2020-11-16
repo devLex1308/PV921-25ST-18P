@@ -2,3 +2,16 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+ul li {
+  float: left;
+  padding: 0 10px;
+  list-style: none;
+
+}
+
+.menu {
+  height: 70px;
+}
+
+
