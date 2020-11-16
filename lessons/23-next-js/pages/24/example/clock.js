@@ -12,18 +12,23 @@ export default class Clock extends React.Component {
     clock: new Date().toLocaleTimeString(),
   }
 
+  setIntervalId = null;
+
   constructor(props) {
     super(props);
-    // setInterval(this.updateTime, 1000);
     console.log("constructor");
   }
 
   componentDidMount() {
+    this.setIntervalId = setInterval(this.updateTime, 1000);
     console.log("componentDidMount");
   }
 
   componentWillUnmount() {
     console.log("componentWillUnmount");
+    if (this.setIntervalId) {
+      clearInterval(this.setIntervalId);
+    }
   }
 
   updateTime = () => {
