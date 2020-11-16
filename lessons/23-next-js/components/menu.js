@@ -1,16 +1,54 @@
+import Link from 'next/link'
+
 function Menu(props) {
 
   return (
     <ul>
-      <li><a href="/24/example/ButtonClickHandler">ButtonClickHandler</a></li>
-      <li><a href="/24/example/ClassDateTime">ClassDateTime</a></li>
-      <li><a href="/24/example/CurrentTime">CurrentTime</a></li>
-      <li><a href="/24/example/DateAndTime">DateAndTime</a></li>
-      <li><a href="/24/example/FirstClassComponent">FirstClassComponent</a></li>
-      <li><a href="/24/example/FirstClassComponent">FirstClassComponent</a></li>
-      <li><a href="/24/example/">index</a></li>
-      <li><a href="/24/example/notUseJsx">notUseJsx</a></li>
-      <li><a href="/24/example/Quote">Quote</a></li>
+      <li>
+        <Link href="/24/example/ButtonClickHandler">
+          <a >ButtonClickHandler</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="/24/example/ClassDateTime">
+          <a >ClassDateTime</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="/24/example/CurrentTime">
+          <a >CurrentTime</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="/24/example/DateAndTime">
+          <a >DateAndTime</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="/24/example/FirstClassComponent">
+          <a >FirstClassComponent</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="/24/example/FirstClassComponent">
+          <a >FirstClassComponent</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="/24/example/">
+          <a >index</a>
+        </Link>
+      </li>
+      <li>
+        <Link  href="/24/example/notUseJsx">
+          <a >notUseJsx</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="/24/example/Quote">
+          <a >Quote</a>
+        </Link>
+      </li>
     </ul>
   );
 }
