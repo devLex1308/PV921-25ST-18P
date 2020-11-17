@@ -1,7 +1,4 @@
 import React from "react";
-import LogoutButton from "../../components/LogoutButton.js";
-import LoginButton from "../../components/LoginButton.js";
-import Greeting from "../../components/Greeting.js";
 
 export default class LoginControl extends React.Component {
   constructor(props) {
