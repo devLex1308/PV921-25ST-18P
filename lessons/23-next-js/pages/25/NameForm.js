@@ -8,6 +8,7 @@ export default class NameForm extends React.Component {
       text: "",
       select: "coconut",
       selectMulti: ["coconut"],
+      isGoing: true,
     };
 
   }
@@ -35,6 +36,15 @@ export default class NameForm extends React.Component {
 
     console.log({selectMulti});
     this.setState({selectMulti});
+  }
+
+  handleInputChangeCheckBox = (event) => {
+    const target = event.target;
+    const value = target.checked
+
+    this.setState({
+      isGoing: value
+    });
   }
 
   handleSubmit = (event) => {
@@ -84,6 +94,15 @@ export default class NameForm extends React.Component {
         </label>
         <br/>
         <br/>
+        <label>
+          Пойдут:
+          <input
+            name="isGoing"
+            type="checkbox"
+            checked={this.state.isGoing}
+            onChange={this.handleInputChangeCheckBox} />
+        </label>
+
         <input type="submit" value="Отправить" />
       </form>
     );
