@@ -18,6 +18,11 @@ export default class LoginControl extends React.Component {
   }
 
   render() {
+
+    // if (!user) {
+    //   return null;
+    // }
+
     const isLoggedIn = this.state.isLoggedIn;
     let button;
     if (isLoggedIn) {
@@ -29,7 +34,11 @@ export default class LoginControl extends React.Component {
     return (
       <div>
         <Greeting isLoggedIn={isLoggedIn} />
-        {button}
+        {
+          isLoggedIn
+            ? <LogoutButton onClick={this.handleLogoutClick} />
+            : <LoginButton onClick={this.handleLoginClick} />
+        }
       </div>
     );
   }

@@ -3,7 +3,7 @@
   text-align: center;
 }
 
-ul li {
+.menu ul li {
   float: left;
   padding: 0 10px;
   list-style: none;
