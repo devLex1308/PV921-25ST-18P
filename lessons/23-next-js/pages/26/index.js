@@ -19,6 +19,7 @@ export default class Toggle extends React.Component {
     this.state = {
       todos: [],
       showAddTodo: false,
+      showEditTodo: false,
     };
 
   }

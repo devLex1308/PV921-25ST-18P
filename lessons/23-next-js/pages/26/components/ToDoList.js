@@ -11,11 +11,20 @@ export default class ToDoList extends React.Component{
       <ul>
         {
           todos.map(todo => (
-            <li key={todo.id}>
+            <li
+              key={todo.id}
+              onClick={() => {
+                if (todo.id == this.state.activeToDoId) {
+                  this.setState({activeToDoId: null});
+                } else {
+                  this.setState({activeToDoId: todo.id});
+                }
+              }}
+            >
               {todo.name}
               {
                 this.state.activeToDoId == todo.id ? (
-                  виводимо опис
+                 <p>{todo.desc}</p>
                 ) : null
               }
             </li>
