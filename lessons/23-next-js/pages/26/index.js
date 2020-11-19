@@ -16,12 +16,26 @@ const db = [];
 export default class Toggle extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+    let state = null;
+    if (typeof window !== "undefined") {
+      const stateString = localStorage.getItem('todoData');
+      if (stateString) {
+        state = JSON.parse(stateString);
+      }
+    }
+    this.state = state
+      ? state
+      : {
       todos: [],
       showAddTodo: false,
       showEditTodo: false,
     };
+  }
 
+  componentWillUnmount() {
+    if (typeof window !== "undefined") {
+      localStorage.setItem('todoData', JSON.stringify(this.state));
+    }
   }
 
   addToDoAction = (todo) => {
