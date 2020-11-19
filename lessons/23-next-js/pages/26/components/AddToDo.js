@@ -74,6 +74,9 @@ export default class AddToDo extends React.Component {
         <button onClick={this.handleClick}>
           Створити
         </button>
+        <button onClick={this.props.back}>
+          Назад
+        </button>
       </React.Fragment>
     );
   }
