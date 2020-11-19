@@ -24,7 +24,12 @@ export default class ToDoList extends React.Component{
               {todo.name}
               {
                 this.state.activeToDoId == todo.id ? (
-                 <p>{todo.desc}</p>
+                  <>
+                    <p>{todo.desc}</p>
+                    <button onClick={() =>this.props.delete(todo.id)}>
+                      X
+                    </button>
+                  </>
                 ) : null
               }
             </li>

@@ -60,6 +60,12 @@ export default class Toggle extends React.Component {
     });
   }
 
+  deleteClick = (id) => {
+    // console.log({id});
+    this.setState({
+      todos: this.state.todos.filter(todo => todo.id!=id)
+    });
+  }
 
   render() {
     console.log(this.state);
@@ -81,7 +87,10 @@ export default class Toggle extends React.Component {
         <button onClick={this.handleClick}>
           Додати задачу
         </button>
-        <ToDoList todos={this.state.todos}/>
+        <ToDoList
+          todos={this.state.todos}
+          delete={this.deleteClick}
+        />
       </>
     );
   }
