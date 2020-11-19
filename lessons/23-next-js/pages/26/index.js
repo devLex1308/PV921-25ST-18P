@@ -19,15 +19,24 @@ export default class Toggle extends React.Component {
       todos: [],
     };
 
-    // Эта привязка обязательна для работы `this` в колбэке.
-    // this.handleClick = this.handleClick.bind(this);
+  }
+
+  addToDoAction = (todo) => {
+    const todos = [...this.state.todos, todo];
+
+    this.setState({
+      todos,
+    });
   }
 
 
   render() {
     return (
       <>
-        <AddToDo />
+        <AddToDo onFinish={(todo) => {
+          console.log({todo});
+          // this.addToDoAction(todo);
+        }} />
         <br/>
         <button onClick={this.handleClick}>
           {this.state.isToggleOn ? 'Включено' : 'Выключено'}
