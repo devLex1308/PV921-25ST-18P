@@ -55,6 +55,11 @@ function Menu(props) {
           <a >clock</a>
         </Link>
       </li>
+      <li>
+        <Link href="/26">
+          <a >ToDo List</a>
+        </Link>
+      </li>
       </ul>
     </div>
   );
