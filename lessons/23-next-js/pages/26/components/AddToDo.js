@@ -5,7 +5,7 @@ export default class AddToDo extends React.Component {
     super(props);
     this.state = {
       name: '',
-      desc: '',
+      desc: ''
     };
   }
 
@@ -26,6 +26,10 @@ export default class AddToDo extends React.Component {
       isDone: false,
       id: Date.now()
     });
+    this.setState({
+      name: '',
+      desc: '',
+    });
   }
 
   render() {
@@ -36,7 +40,7 @@ export default class AddToDo extends React.Component {
           <input
             type="text"
             name="name"
-            value={this.state.value}
+            value={this.state.name}
             onChange={this.handleChange}
           />
         </label>
@@ -44,7 +48,7 @@ export default class AddToDo extends React.Component {
         <label>
           Опис задачі:<br/>
           <textarea
-            value={this.state.text}
+            value={this.state.desc}
             name="desc"
             onChange={this.handleChange}
           />

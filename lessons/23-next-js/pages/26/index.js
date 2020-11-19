@@ -17,6 +17,7 @@ export default class Toggle extends React.Component {
     super(props);
     this.state = {
       todos: [],
+      showAddTodo: false,
     };
 
   }
@@ -29,17 +30,30 @@ export default class Toggle extends React.Component {
     });
   }
 
+  handleClick = () => {
+    this.setState({
+      showAddTodo: true,
+    });
+  }
+
 
   render() {
+    console.log(this.state);
+
+    if (this.state.showAddTodo) {
+      return (
+        <AddToDo onFinish={(todo) => {
+          // console.log({todo});
+          this.addToDoAction(todo);
+        }} />
+      );
+    }
+
     return (
       <>
-        <AddToDo onFinish={(todo) => {
-          console.log({todo});
-          // this.addToDoAction(todo);
-        }} />
         <br/>
         <button onClick={this.handleClick}>
-          {this.state.isToggleOn ? 'Включено' : 'Выключено'}
+          Додати задачу
         </button>
       </>
     );
