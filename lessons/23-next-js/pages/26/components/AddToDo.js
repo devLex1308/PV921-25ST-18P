@@ -1,6 +1,4 @@
 import React from "react";
-db = [];
-
 
 export default class AddToDo extends React.Component {
   constructor(props) {
@@ -9,28 +7,42 @@ export default class AddToDo extends React.Component {
       name: '',
       desc: '',
     };
+  }
 
+  handleChange = (event) => {
+    const {name, value} = event.target;
+    this.setState({
+      [name]: value,
+    });
   }
 
 
   render() {
     return (
-      <label>
-        Назва задачі: <br/>
-        <input
-          type="text"
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
-      </label>
-      <br/>
-      <label>
-        Опис задачі:<br/>
-        <textarea value={this.state.text} onChange={this.handleChangeText} />
-      </label>
-      <button onClick={this.handleClick}>
-        Створити
-      </button>
+      <React.Fragment>
+        <label>
+          Назва задачі: <br/>
+          <input
+            type="text"
+            name="name"
+            value={this.state.value}
+            onChange={this.handleChange}
+          />
+        </label>
+        <br/>
+        <label>
+          Опис задачі:<br/>
+          <textarea
+            value={this.state.text}
+            name="desc"
+            onChange={this.handleChange}
+          />
+        </label>
+        <br/>
+        <button onClick={this.handleClick}>
+          Створити
+        </button>
+      </React.Fragment>
     );
   }
 }

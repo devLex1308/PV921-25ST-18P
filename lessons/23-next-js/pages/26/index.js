@@ -1,4 +1,5 @@
 import React from "react";
+import AddToDo from "./components/AddToDo.js"
 
 const todo = {
   name: "string",
@@ -8,7 +9,7 @@ const todo = {
 }
 
 
-db = [];
+const db = [];
 
 
 export default class Toggle extends React.Component {
@@ -25,9 +26,13 @@ export default class Toggle extends React.Component {
 
   render() {
     return (
-      <button onClick={this.handleClick}>
-        {this.state.isToggleOn ? 'Включено' : 'Выключено'}
-      </button>
+      <>
+        <AddToDo />
+        <br/>
+        <button onClick={this.handleClick}>
+          {this.state.isToggleOn ? 'Включено' : 'Выключено'}
+        </button>
+      </>
     );
   }
 }
