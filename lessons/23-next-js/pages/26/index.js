@@ -1,5 +1,6 @@
 import React from "react";
-import AddToDo from "./components/AddToDo.js"
+import AddToDo from "./components/AddToDo.js";
+import ToDoList from "./components/ToDoList.js";
 
 const todo = {
   name: "string",
@@ -59,6 +60,7 @@ export default class Toggle extends React.Component {
         <button onClick={this.handleClick}>
           Додати задачу
         </button>
+        <ToDoList todos={this.state.todos}/>
       </>
     );
   }

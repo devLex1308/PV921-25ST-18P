@@ -10,7 +10,7 @@ export default class AddToDo extends React.Component {
   }
 
   checkInputText = (str) => {
-    const rx = /^[А-Яа-яёЁЇїІіЄєҐґ]{2,40}$/;
+    const rx = /^[А-Яа-яёЁЇїІіЄєҐґ ]{2,40}$/;
     return rx.test(str);
   }
 
