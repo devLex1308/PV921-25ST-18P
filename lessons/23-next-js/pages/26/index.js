@@ -28,6 +28,10 @@ export default class Toggle extends React.Component {
     this.setState({
       todos,
     });
+
+    this.setState({
+      showAddTodo: false,
+    });
   }
 
   handleClick = () => {

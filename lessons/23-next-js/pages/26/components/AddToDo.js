@@ -9,6 +9,11 @@ export default class AddToDo extends React.Component {
     };
   }
 
+  checkInputText = (str) => {
+    const rx = /^[А-Яа-яёЁЇїІіЄєҐґ]{2,40}$/;
+    return rx.test(str);
+  }
+
   handleChange = (event) => {
     const {name, value} = event.target;
     this.setState({
@@ -20,6 +25,18 @@ export default class AddToDo extends React.Component {
     const {
       name, desc
     } = this.state;
+
+
+    if (!this.checkInputText(name)) {
+      alert("Ви не ввели назву задачі");
+      return;
+
+    }
+    if (!this.checkInputText(desc)) {
+      alert("Ви не ввели опис задачі");
+      return;
+    }
+
     this.props.onFinish({
       name,
       desc,
