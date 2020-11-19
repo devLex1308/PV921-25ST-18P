@@ -16,6 +16,9 @@ export default class AddToDo extends React.Component {
     });
   }
 
+  handleClick = () => {
+    this.props.onFinish("Test");
+  }
 
   render() {
     return (
