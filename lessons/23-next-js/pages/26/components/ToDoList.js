@@ -29,6 +29,9 @@ export default class ToDoList extends React.Component{
                     <button onClick={() =>this.props.delete(todo.id)}>
                       X
                     </button>
+                    <button onClick={() =>this.props.edit(todo.id)}>
+                      редагувати
+                    </button>
                   </>
                 ) : null
               }

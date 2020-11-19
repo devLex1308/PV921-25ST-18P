@@ -28,7 +28,7 @@ export default class Toggle extends React.Component {
       : {
       todos: [],
       showAddTodo: false,
-      showEditTodo: false,
+      editTodoId: null,
     };
   }
 
@@ -67,6 +67,12 @@ export default class Toggle extends React.Component {
     });
   }
 
+  editClick = (id) => {
+    this.setState({
+      editTodoId: id,
+    });
+  }
+
   render() {
     console.log(this.state);
 
@@ -90,6 +96,7 @@ export default class Toggle extends React.Component {
         <ToDoList
           todos={this.state.todos}
           delete={this.deleteClick}
+          edit={this.editClick}
         />
       </>
     );
