@@ -1,5 +1,6 @@
 import React from "react";
 import AddToDo from "./components/AddToDo.js";
+import EditToDo from "./components/EditToDo.js";
 import ToDoList from "./components/ToDoList.js";
 
 const todo = {
@@ -75,6 +76,13 @@ export default class Toggle extends React.Component {
 
   render() {
     console.log(this.state);
+
+    if (this.state.editTodoId) {
+      return <EditToDo
+        id={this.state.editTodoId}
+        todos={this.state.todos}
+      />
+    }
 
     if (this.state.showAddTodo) {
       return (
