@@ -1,6 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default class ToDoList extends React.Component{
+export default function ToDoList(props){
+  const [activeToDoId, setActiveToDoId] = useState(null);
+  const { todos } = props;
+
+  return(
+      <ul>
+        {
+          todos.map(todo => (
+            <li
+              key={todo.id}
+              onClick={() => {
+                if (todo.id == activeToDoId) {
+                  setActiveToDoId(null);
+                } else {
+                  setActiveToDoId(todo.id);
+                }
+              }}
+            >
+              {todo.name}
+              {
+                activeToDoId == todo.id ? (
+                  <>
+                    <p>{todo.desc}</p>
+                    <button onClick={() =>props.delete(todo.id)}>
+                      X
+                    </button>
+                    <button onClick={() =>props.edit(todo.id)}>
+                      редагувати
+                    </button>
+                  </>
+                ) : null
+              }
+            </li>
+          ))
+        }
+      </ul>
+    )
+};
+
+class ToDoList2 extends React.Component{
   state = {
     activeToDoId: null,
   }

@@ -5,6 +5,48 @@ export default function AddToDo(props) {
   const [name, setName ] = useState("");
   const [desc, setDesc ] = useState("");
 
+  const checkInputText = (str) => {
+    const rx = /^[А-Яа-яёЁЇїІіЄєҐґA-Za-z0-9 ]{2,10000}$/;
+    return rx.test(str);
+  }
+
+  const handleChange = (event) => {
+    const {name, value} = event.target;
+    switch(name) {
+      case "name":
+          setName(value); 
+        break;
+      case "desc":
+          setDesc(value);
+        break;
+      // default;
+    }
+  }
+
+  const handleClick = () => {
+    if(!checkInputText(name))
+    {
+      alert("Ви не ввели опис задачі");
+      console.log(name);
+      return;
+    }
+    if (!checkInputText(desc))
+    {
+      alert("Ви не ввели назву задачі");
+      console.log(desc);
+      return;
+    }
+    props.onFinish({
+      name,
+      desc,
+      isDone: false,
+      id: Date.now()
+    });
+    setName("");
+    setDesc("");
+  }
+
+
   return (
     <React.Fragment>
       <label>
@@ -13,10 +55,7 @@ export default function AddToDo(props) {
           type="text"
           name="name"
           value={name}
-          onChange={(event) => {
-            const {value} = event.target;
-            setName(value);
-          }}
+          onChange={handleChange}
         />
       </label>
       <br/>
@@ -25,24 +64,11 @@ export default function AddToDo(props) {
         <textarea
           value={desc}
           name="desc"
-          onChange={(event) => {
-            const {value} = event.target;
-            setDesc(value);
-          }}
+          onChange={handleChange}
         />
       </label>
       <br/>
-      <button onClick={() => {
-
-        props.onFinish({
-          name,
-          desc,
-          isDone: false,
-          id: Date.now()
-        });
-        setName("");
-        setDesc("");
-      }}>
+      <button onClick={handleClick}>
         Створити
       </button>
       <button onClick={props.back}>
@@ -62,7 +88,7 @@ class AddToDo2 extends React.Component {
   }
 
   checkInputText = (str) => {
-    const rx = /^[А-Яа-яёЁЇїІіЄєҐґ ]{2,40}$/;
+    const rx = /^[А-Яа-яёЁЇїІіЄєҐґA-Za-z0-9 ]{2,}$/;
     return rx.test(str);
   }
 
