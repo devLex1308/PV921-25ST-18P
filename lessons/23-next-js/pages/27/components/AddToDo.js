@@ -5,32 +5,6 @@ export default function AddToDo(props) {
   const [name, setName ] = useState("");
   const [desc, setDesc ] = useState("");
 
-  const handleChange = (event) => {
-    const {name, value} = event.target;
-    switch(name) {
-      case "name":
-        setName(value);
-        break;
-      case "desc":
-        setDesc(value);
-        break;
-      // default;
-    }
-  }
-
-  const handleClick = () => {
-
-    props.onFinish({
-      name,
-      desc,
-      isDone: false,
-      id: Date.now()
-    });
-    setName("");
-    setDesc("");
-  }
-
-
   return (
     <React.Fragment>
       <label>
@@ -39,7 +13,10 @@ export default function AddToDo(props) {
           type="text"
           name="name"
           value={name}
-          onChange={handleChange}
+          onChange={(event) => {
+            const {value} = event.target;
+            setName(value);
+          }}
         />
       </label>
       <br/>
@@ -48,11 +25,24 @@ export default function AddToDo(props) {
         <textarea
           value={desc}
           name="desc"
-          onChange={handleChange}
+          onChange={(event) => {
+            const {value} = event.target;
+            setDesc(value);
+          }}
         />
       </label>
       <br/>
-      <button onClick={handleClick}>
+      <button onClick={() => {
+
+        props.onFinish({
+          name,
+          desc,
+          isDone: false,
+          id: Date.now()
+        });
+        setName("");
+        setDesc("");
+      }}>
         Створити
       </button>
       <button onClick={props.back}>
