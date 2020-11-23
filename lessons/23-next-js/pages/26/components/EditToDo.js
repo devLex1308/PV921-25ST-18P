@@ -42,16 +42,16 @@ export default class EditToDo extends React.Component {
       return;
     }
 
-    // this.props.onFinish({
-    //   name,
-    //   desc,
-    //   isDone: false,
-    //   id: Date.now()
-    // });
-    // this.setState({
-    //   name: '',
-    //   desc: '',
-    // });
+    this.props.onFinish({
+      name,
+      desc,
+      isDone: false,
+      id: this.props.id,
+    });
+    this.setState({
+      name: '',
+      desc: '',
+    });
   }
 
   render() {
@@ -78,7 +78,7 @@ export default class EditToDo extends React.Component {
         </label>
         <br/>
         <button onClick={this.handleClick}>
-          Створити
+          Зберегти
         </button>
         <button onClick={this.props.back}>
           Назад

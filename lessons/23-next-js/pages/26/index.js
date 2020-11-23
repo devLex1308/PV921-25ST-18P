@@ -49,9 +49,33 @@ export default class Toggle extends React.Component {
     this.hideAddToDo();
   }
 
+  editToDoAction = (todo) => {
+    const todos = this.state.todos.reduce((acc, item) => {
+      if (item.id == todo.id) {
+        acc.push(todo);
+      } else {
+        acc.push(item);
+      }
+
+      return acc;
+    }, []);
+
+    this.setState({
+      todos,
+    });
+
+    this.hideEditToDo();
+  }
+
   hideAddToDo = () => {
     this.setState({
       showAddTodo: false,
+    });
+  }
+
+  hideEditToDo = () => {
+    this.setState({
+      editTodoId: null,
     });
   }
 
@@ -81,6 +105,11 @@ export default class Toggle extends React.Component {
       return <EditToDo
         id={this.state.editTodoId}
         todos={this.state.todos}
+        onFinish={(todo) => {
+          // console.log({todo});
+          this.editToDoAction(todo);
+        }}
+        back={this.hideEditToDo}
       />
     }
 
