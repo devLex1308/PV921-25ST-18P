@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
+import { editTodo } from "../../../actions/todo.actions.js";
 
 class EditToDo extends React.Component {
   constructor(props) {
@@ -43,15 +44,14 @@ class EditToDo extends React.Component {
       return;
     }
 
-    this.props.dispatch({
-      type: "EDIT_TODO",
-      todo: {
-        name,
-        desc,
-        isDone: false,
-        id: this.props.id,
-      }
-    });
+    const editedTodo = {
+      name,
+      desc,
+      isDone: false,
+      id: this.props.id,
+    };
+
+    this.props.dispatch(editTodo(editedTodo));
 
     this.props.onFinish();
     this.setState({

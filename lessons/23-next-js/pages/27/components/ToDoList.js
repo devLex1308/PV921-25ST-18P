@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux'
+import { deleteTodo } from "../../../actions/todo.actions.js";
+
 
 class ToDoList extends React.Component{
   state = {
@@ -27,10 +29,7 @@ class ToDoList extends React.Component{
                 this.state.activeToDoId == todo.id ? (
                   <>
                     <p>{todo.desc}</p>
-                    <button onClick={() =>this.props.dispatch({
-                      type: "DELETE_TODO",
-                      id: todo.id
-                    })}>
+                    <button onClick={() =>this.props.dispatch(deleteTodo(todo.id))}>
                       X
                     </button>
                     <button onClick={() =>this.props.edit(todo.id)}>
