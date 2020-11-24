@@ -27,7 +27,6 @@ export default class Toggle extends React.Component {
     this.state = state
       ? state
       : {
-      todos: [],
       showAddTodo: false,
       editTodoId: null,
     };
@@ -40,30 +39,10 @@ export default class Toggle extends React.Component {
   }
 
   addToDoAction = (todo) => {
-    const todos = [...this.state.todos, todo];
-
-    this.setState({
-      todos,
-    });
-
     this.hideAddToDo();
   }
 
   editToDoAction = (todo) => {
-    const todos = this.state.todos.reduce((acc, item) => {
-      if (item.id == todo.id) {
-        acc.push(todo);
-      } else {
-        acc.push(item);
-      }
-
-      return acc;
-    }, []);
-
-    this.setState({
-      todos,
-    });
-
     this.hideEditToDo();
   }
 
@@ -85,13 +64,6 @@ export default class Toggle extends React.Component {
     });
   }
 
-  deleteClick = (id) => {
-    // console.log({id});
-    this.setState({
-      todos: this.state.todos.filter(todo => todo.id!=id)
-    });
-  }
-
   editClick = (id) => {
     this.setState({
       editTodoId: id,
@@ -99,7 +71,6 @@ export default class Toggle extends React.Component {
   }
 
   render() {
-    console.log(this.state);
 
     if (this.state.editTodoId) {
       return <EditToDo
@@ -131,7 +102,6 @@ export default class Toggle extends React.Component {
           Додати задачу
         </button>
         <ToDoList
-          delete={this.deleteClick}
           edit={this.editClick}
         />
       </>

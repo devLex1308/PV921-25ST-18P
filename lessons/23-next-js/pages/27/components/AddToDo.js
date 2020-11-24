@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Title from "./Title.js";
+import { useDispatch } from 'react-redux';
 
-export default function AddToDo(props) {
+function AddToDo(props) {
 
   const [name, setName ] = useState("");
   const [desc, setDesc ] = useState("");
+  const dispatch = useDispatch();
 
   const checkInputText = (str) => {
     const rx = /^[А-Яа-яёЁЇїІіЄєҐґA-Za-z0-9 ]{2,10000}$/;
@@ -37,12 +39,19 @@ export default function AddToDo(props) {
       console.log(desc);
       return;
     }
-    props.onFinish({
-      name,
-      desc,
-      isDone: false,
-      id: Date.now()
+
+
+    dispatch({
+      type: 'ADD_TODO',
+      todo: {
+        name,
+        desc,
+        isDone: false,
+        id: Date.now()
+      }
     });
+
+    props.onFinish({});
     setName("");
     setDesc("");
   }
@@ -162,3 +171,4 @@ class AddToDo2 extends React.Component {
   }
 }
 
+export default AddToDo;

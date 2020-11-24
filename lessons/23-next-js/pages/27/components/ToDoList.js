@@ -1,33 +1,39 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from 'react-redux'
 
-function ToDoList(props){
-  const [activeToDoId, setActiveToDoId] = useState(null);
-  const { todos } = props;
+class ToDoList extends React.Component{
+  state = {
+    activeToDoId: null,
+  }
 
-  return(
+  render() {
+    const { todos } = this.props;
+    return(
       <ul>
         {
           todos.map(todo => (
             <li
               key={todo.id}
               onClick={() => {
-                if (todo.id == activeToDoId) {
-                  setActiveToDoId(null);
+                if (todo.id == this.state.activeToDoId) {
+                  this.setState({activeToDoId: null});
                 } else {
-                  setActiveToDoId(todo.id);
+                  this.setState({activeToDoId: todo.id});
                 }
               }}
             >
               {todo.name}
               {
-                activeToDoId == todo.id ? (
+                this.state.activeToDoId == todo.id ? (
                   <>
                     <p>{todo.desc}</p>
-                    <button onClick={() =>props.delete(todo.id)}>
+                    <button onClick={() =>this.props.dispatch({
+                      type: "DELETE_TODO",
+                      id: todo.id
+                    })}>
                       X
                     </button>
-                    <button onClick={() =>props.edit(todo.id)}>
+                    <button onClick={() =>this.props.edit(todo.id)}>
                       редагувати
                     </button>
                   </>
@@ -38,14 +44,14 @@ function ToDoList(props){
         }
       </ul>
     )
-};
+  }
+}
 
 
 const mapStateToProps = (state /*, ownProps*/) => {
   // console.log({state});
   return {
     todos: state.todos,
-    name: "Ivan"
   }
 }
 
