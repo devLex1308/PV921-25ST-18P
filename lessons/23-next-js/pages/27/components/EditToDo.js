@@ -16,7 +16,7 @@ class EditToDo extends React.Component {
   }
 
   checkInputText = (str) => {
-    const rx = /^[А-Яа-яёЁЇїІіЄєҐґ ]{2,40}$/;
+    const rx = /^[А-Яа-яёЁЇїІіЄєҐґA-Za-z0-9 ]{2,250}$/;
     return rx.test(str);
   }
 
