@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Title from "./Title.js";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
+
+import { addTodo } from "../../../actions/todo.actions.js";
+
 
 function AddToDo(props) {
 
@@ -41,15 +44,14 @@ function AddToDo(props) {
     }
 
 
-    dispatch({
-      type: 'ADD_TODO',
-      todo: {
-        name,
-        desc,
-        isDone: false,
-        id: Date.now()
-      }
-    });
+    const newTodo = {
+      name,
+      desc,
+      isDone: false,
+      id: Date.now()
+    };
+
+    dispatch(addTodo(newTodo));
 
     props.onFinish({});
     setName("");
