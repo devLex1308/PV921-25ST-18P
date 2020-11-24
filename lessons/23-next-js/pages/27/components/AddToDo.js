@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Title from "./Title.js";
 
 export default function AddToDo(props) {
 
@@ -14,7 +15,7 @@ export default function AddToDo(props) {
     const {name, value} = event.target;
     switch(name) {
       case "name":
-          setName(value); 
+          setName(value);
         break;
       case "desc":
           setDesc(value);
@@ -49,6 +50,7 @@ export default function AddToDo(props) {
 
   return (
     <React.Fragment>
+      <Title animal="dog" />
       <label>
         Назва задачі: <br/>
         <input
