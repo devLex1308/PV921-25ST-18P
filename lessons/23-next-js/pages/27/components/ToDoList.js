@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux'
-import { deleteTodo } from "../../../actions/todo.actions.js";
+import { deleteTodo, toggleTodo } from "../../../actions/todo.actions.js";
 
 
 class ToDoList extends React.Component{
@@ -23,8 +23,13 @@ class ToDoList extends React.Component{
                   this.setState({activeToDoId: todo.id});
                 }
               }}
+
             >
               {todo.name}
+              <input 
+                      type="checkbox" 
+                      checked={todo.isDone}
+                      onChange={() => this.props.dispatch(toggleTodo(todo.id))}/>
               {
                 this.state.activeToDoId == todo.id ? (
                   <>
