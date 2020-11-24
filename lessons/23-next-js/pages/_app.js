@@ -1,26 +1,13 @@
-import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { Provider } from 'react-redux';
 
 import "./24/example/styles.css";
 import "./27/TicTacToe.css";
-import Menu from "../components/menu.js"
-
-
-function todos(state = [], action) {
-  switch (action.type) {
-    case 'ADD_TODO':
-      return state.concat([action.text])
-    default:
-      return state
-  }
-}
-
-const store = createStore(todos, ['Use Redux'])
+import Menu from "../components/menu.js";
+import { store } from "../store/store.js";
 
 
 function MyApp(page) {
 
-  console.log(page);
   const { Component, pageProps } = page;
 
   return (

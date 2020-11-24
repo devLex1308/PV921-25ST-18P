@@ -13,7 +13,7 @@ class Title extends React.Component{
 }
 
 const mapStateToProps = (state /*, ownProps*/) => {
-  console.log({state});
+  // console.log({state});
   return {
     todos: state.todos,
     name: "Ivan"

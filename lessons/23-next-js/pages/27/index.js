@@ -131,7 +131,6 @@ export default class Toggle extends React.Component {
           Додати задачу
         </button>
         <ToDoList
-          todos={this.state.todos}
           delete={this.deleteClick}
           edit={this.editClick}
         />
