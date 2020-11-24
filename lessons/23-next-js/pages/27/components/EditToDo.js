@@ -37,8 +37,8 @@ class EditToDo extends React.Component {
     if (!this.checkInputText(name)) {
       alert("Ви не ввели назву задачі");
       return;
-
     }
+
     if (!this.checkInputText(desc)) {
       alert("Ви не ввели опис задачі");
       return;
@@ -51,7 +51,7 @@ class EditToDo extends React.Component {
       id: this.props.id,
     };
 
-    this.props.dispatch(editTodo(editedTodo));
+    this.props.editTodo(editedTodo);
 
     this.props.onFinish();
     this.setState({
@@ -100,5 +100,8 @@ const mapStateToProps = (state /*, ownProps*/) => {
   }
 }
 
+const mapDispatchToProps = {
+  editTodo,
+}
 
-export default connect(mapStateToProps)(EditToDo);
+export default connect(mapStateToProps, mapDispatchToProps)(EditToDo);
