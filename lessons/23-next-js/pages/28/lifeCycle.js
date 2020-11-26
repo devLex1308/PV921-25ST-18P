@@ -19,7 +19,7 @@ export default class app extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     console.log("shouldComponentUpdate", {nextProps, nextState});
-    return true;
+    return nextState.count % 5 == 0;
   }
 
   componentDidMount(props) {
