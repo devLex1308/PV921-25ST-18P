@@ -20,8 +20,17 @@ export class Post2Component {
 
   }
 
-  changeListener = () => {
-  	console.log("changeListener");
+  changeListener = (event) => {
+  	console.log("changeListener", event.target.value);
+  	this.name = event.target.value;
   }
 
+  changeListenerKey = (event) => {
+  	console.log("changeListenerKey", event.target.value);
+  	this.name = event.target.value;
+  }
+
+  clickListener = () => {
+  	console.log("Натиск");
+  }
 }
