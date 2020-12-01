@@ -5,11 +5,23 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './post2.component.html',
   styleUrls: ['./post2.component.css']
 })
-export class Post2Component implements OnInit {
+export class Post2Component {
 
-  constructor() { }
+	title = "Мій компонент"
 
-  ngOnInit(): void {
+	name = "1"
+
+  constructor() {
+  	let i = 0;
+  	// setInterval(() => {
+  	// 	i++;
+  	// 	this.title = `Тест ${i}`;
+  	// }, 1000);
+
+  }
+
+  changeListener = () => {
+  	console.log("changeListener");
   }
 
 }
