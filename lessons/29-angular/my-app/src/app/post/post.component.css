@@ -1,0 +1,10 @@
+.my-post {
+	color: green;
+}
+
+td {
+	border: 1px solid black;
+	height: 100px;
+	width: 100px;
+	border-collapse: collapse;
+}
