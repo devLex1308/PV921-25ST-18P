@@ -11,6 +11,10 @@ export class Post2Component {
 
 	name = "1"
 
+	firstName = ""
+	lastName = ""
+	show = false
+
   constructor() {
   	let i = 0;
   	// setInterval(() => {
@@ -31,6 +35,19 @@ export class Post2Component {
   }
 
   clickListener = () => {
-  	console.log("Натиск");
+  	console.log(this.firstName, this.lastName);
+  	this.show = !this.show;
   }
+
+  // onInput(event: any) {
+  //   this.lastName = event.target.value
+  // }
+
+  // changeFirstName(event) {
+  // 	this.firstName = event.target.value;
+  // }
+
+  // changeLastName(event) {
+  // 	this.lastName = event.target.value;
+  // } 
 }
