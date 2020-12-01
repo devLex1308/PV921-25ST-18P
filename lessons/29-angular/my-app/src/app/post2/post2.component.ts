@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Post2Component {
 
-	title = "Мій компонент"
+	toggle = false;
+	title = "Мій компонент";
 
-	name = "1"
+	name = "1";
+
+	arr = [1,2,3,8,7,9]
+	obj = {a:1, b:2, c:{d:5}}
 
 	firstName = ""
 	lastName = ""

@@ -3,15 +3,18 @@
 <input type="text" (keyup.f2)="changeListenerKey($event)" value={{name}}>
 <p>{{name}} {{name}}</p>
 <br>
-<br>
-<br>
-<br>
-<input [ngStyle]="{
-	border: show ? '2px solid red' : '0 solid red',
-	color: 'blue',
-}" type="text" [(ngModel)]="firstName">
-<input type="text" [(ngModel)]="lastName">
-<button (click)="clickListener()">Ок</button>
+<p>{{arr}}</p>
+<ul>
+	<li *ngFor="let item of arr; let idx = index"> {{idx + 1}} {{item}}</li>
+</ul>
+<div [ngSwitch]="toggle">
+  <p *ngSwitchCase="true" class="red">Lorem ipsum.</p>
+  <p *ngSwitchCase="false" class="blue">Lorem ipsum. Lorem ipsum.</p>
+  <p *ngSwitchDefault>Lorem ipsum.</p>
+</div>
+
+<p>{{obj.c.d}}</p>
+
 
 
 
