@@ -9,6 +9,7 @@ import { Post3Component } from './post3/post3.component';
 import { HellowComponent } from './hellow/hellow.component';
 import { ExampleComponent } from './example/example.component';
 import { TrafficLightsComponent } from './traffic-lights/traffic-lights.component';
+import { ImportComponent } from './import/import.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { TrafficLightsComponent } from './traffic-lights/traffic-lights.componen
     HellowComponent,
     ExampleComponent,
     TrafficLightsComponent,
+    ImportComponent,
   ],
   imports: [
     FormsModule,
@@ -27,4 +29,4 @@ import { TrafficLightsComponent } from './traffic-lights/traffic-lights.componen
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
