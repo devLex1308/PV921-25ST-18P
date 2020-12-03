@@ -1,6 +1,13 @@
 <p>{{title}}</p>
-<input type="text" (input)="changeListener($event)" value={{name}}>
-<input type="text" (keyup.f2)="changeListenerKey($event)" value={{name}}>
+<input type="text" (input)="changeListener($event)" value={{name}}/>
+<input type="text" (keyup.f2)="changeListenerKey($event)" value={{name}}/>
+<input type="text" [(ngModel)]="firstName" placeholder="firstName" />
+<input type="text" [(ngModel)]="lastName" placeholder="lastName" />
+
+<button (click)="clickListener()">Ок</button>
+<p>
+	{{show ? firstName + ' ' + lastName : ''}}
+</p>
 <p>{{name}} {{name}}</p>
 <br>
 <p>{{arr}}</p>

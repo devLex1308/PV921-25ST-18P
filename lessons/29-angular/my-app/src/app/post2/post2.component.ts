@@ -15,7 +15,7 @@ export class Post2Component {
 	arr = [1,2,3,8,7,9]
 	obj = {a:1, b:2, c:{d:5}}
 
-	firstName = ""
+	firstName = "Valera"
 	lastName = ""
 	show = false
 
