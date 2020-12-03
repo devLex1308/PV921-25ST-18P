@@ -12,4 +12,9 @@ export class FromChildToParentComponent {
     change(increased:any) {
         this.myEvent.emit(increased);
     }
+
+    @Output() myTextInput = new EventEmitter<boolean>();
+    onChange(event) {
+    	this.myTextInput.emit(event.target.value);
+    }
 }

@@ -15,4 +15,9 @@ export class AppComponent {
   		?this.clicks++
   		:this.clicks--;
   }
+  
+  myTextInput(val) {
+  	console.log({val});
+  	this.title = val;
+  }
 }

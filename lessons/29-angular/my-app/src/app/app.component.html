@@ -3,7 +3,10 @@
   <p>{{title}}</p>
 </div>
 <h2>Количество кликов: {{clicks}}</h2>
-<app-from-child-to-parent (myEvent)="onChanged($event)"></app-from-child-to-parent>
+<app-from-child-to-parent 
+	(myEvent)="onChanged($event)"
+	(myTextInput)="myTextInput($event)"
+></app-from-child-to-parent>
 <app-import [userName]="name" [userAge]="age" ></app-import>
 <app-traffic-lights></app-traffic-lights>
 <app-example></app-example>
