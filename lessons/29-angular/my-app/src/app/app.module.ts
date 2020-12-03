@@ -10,6 +10,7 @@ import { HellowComponent } from './hellow/hellow.component';
 import { ExampleComponent } from './example/example.component';
 import { TrafficLightsComponent } from './traffic-lights/traffic-lights.component';
 import { ImportComponent } from './import/import.component';
+import { FromChildToParentComponent } from './from-child-to-parent/from-child-to-parent.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ImportComponent } from './import/import.component';
     ExampleComponent,
     TrafficLightsComponent,
     ImportComponent,
+    FromChildToParentComponent,
   ],
   imports: [
     FormsModule,

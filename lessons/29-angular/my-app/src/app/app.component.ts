@@ -9,4 +9,10 @@ export class AppComponent {
   title = 'my-app';
   name = "Тарас Шевченко";
   age = 47;
+  clicks:number = 0;
+  onChanged(increased) {
+  	increased==true
+  		?this.clicks++
+  		:this.clicks--;
+  }
 }
