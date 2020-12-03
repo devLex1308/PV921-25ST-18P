@@ -7,3 +7,9 @@ div {
 .isredbox {
 	background-color:red;
 }
+.isyellowbox{
+	background-color:yellow;
+}
+.isgreenbox {
+	background-color:green;
+}

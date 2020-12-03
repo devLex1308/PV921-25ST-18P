@@ -5,11 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './traffic-lights.component.html',
   styleUrls: ['./traffic-lights.component.css']
 })
-export class TrafficLightsComponent implements OnInit {
+export class TrafficLightsComponent {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  color = 1;
 
 }
