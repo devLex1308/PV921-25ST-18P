@@ -10,4 +10,7 @@ export class ExampleComponent {
   constructor() { }
   colspan=2;
 
+  changeColspan(val) {
+  	this.colspan = val;
+  }
 }
