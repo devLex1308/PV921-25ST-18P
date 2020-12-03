@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { AppPost } from './post/post.component';
 import { Post2Component } from './post2/post2.component';
 import { Post3Component } from './post3/post3.component';
+import { HellowComponent } from './hellow/hellow.component';
+import { ExampleComponent } from './example/example.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,8 @@ import { Post3Component } from './post3/post3.component';
     AppPost,
     Post2Component,
     Post3Component,
+    HellowComponent,
+    ExampleComponent,
   ],
   imports: [
     FormsModule,
