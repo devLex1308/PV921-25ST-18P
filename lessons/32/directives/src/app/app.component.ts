@@ -60,9 +60,9 @@ export class AppComponent implements OnInit,
      
     this.log(`ngAfterContentChecked`);
   }
-
+  // counter2 = 8;
   private log(msg: string) {
-      console.log("father", this.count + ". " + msg);
+      console.log("father", this.count + ". " + msg, this.counter);
       this.count++;
   }
 }
