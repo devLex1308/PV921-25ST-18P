@@ -1,6 +1,7 @@
 <div [ngClass]="{
-    colorRed: color,
-    colorGreen: !color
+    colorRed: color%3==0,
+    colorGreen: color%3==1,
+    colorBlue: color%3==2
 	}" class="blok">
 	
 </div>

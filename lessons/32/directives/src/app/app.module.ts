@@ -7,6 +7,8 @@ import { ChildComponent } from './child/child.component';
 import { ViewChildComponent } from './view-child/view-child.component';
 import { Child2Component } from './child2/child2.component';
 import { NgClassComponent } from './ng-class/ng-class.component';
+import { BoldDirective } from './bold.directive';
+import { ColorRedDirective } from './directives/color-red.directive';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { NgClassComponent } from './ng-class/ng-class.component';
     ChildComponent,
     ViewChildComponent,
     Child2Component,
-    NgClassComponent
+    NgClassComponent,
+    BoldDirective,
+    ColorRedDirective
   ],
   imports: [
     BrowserModule,
