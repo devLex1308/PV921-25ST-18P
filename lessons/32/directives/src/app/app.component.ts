@@ -62,7 +62,7 @@ export class AppComponent implements OnInit,
   }
   // counter2 = 8;
   private log(msg: string) {
-      console.log("father", this.count + ". " + msg, this.counter);
+      // console.log("father", this.count + ". " + msg);
       this.count++;
   }
 }

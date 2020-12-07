@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { ChildComponent } from './child/child.component';
 import { ViewChildComponent } from './view-child/view-child.component';
 import { Child2Component } from './child2/child2.component';
+import { NgClassComponent } from './ng-class/ng-class.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChildComponent,
     ViewChildComponent,
-    Child2Component
+    Child2Component,
+    NgClassComponent
   ],
   imports: [
     BrowserModule,
