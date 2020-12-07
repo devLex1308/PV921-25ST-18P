@@ -1,27 +1,61 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, 
+         Input, 
+         OnInit,
+         DoCheck,
+         OnChanges,
+        AfterContentInit, 
+        AfterContentChecked, 
+        AfterViewChecked, 
+        AfterViewInit} from '@angular/core';
+
 
 @Component({
   selector: 'app-child',
   templateUrl: './child.component.html',
   styleUrls: ['./child.component.css']
 })
-export class ChildComponent implements OnInit, OnChanges {
+export class ChildComponent implements OnInit,
+  DoCheck,
+  OnChanges,
+  AfterContentInit, 
+  AfterContentChecked, 
+  AfterViewChecked, 
+  AfterViewInit {
 	
 	@Input() name: string;
-
-  constructor(){ this.log(`constructor`); }
-  ngOnInit() { this.log(`onInit`); }
+  count:number=1;
    
-  ngOnChanges(changes: SimpleChanges) {
-    for (let propName in changes) {
-      let chng = changes[propName];
-      let cur  = JSON.stringify(chng.currentValue);
-      let prev = JSON.stringify(chng.previousValue);
-      this.log(`${propName}: currentValue = ${cur}, previousValue = ${prev}`);
-    }
+  ngOnInit() {
+     
+    this.log(`ngOnInit`);
   }
-  private log(msg: string) {
-      console.log(msg);
+  ngOnChanges() {
+     
+    this.log(`OnChanges`);
+  }
+  ngDoCheck() {
+     
+    this.log(`ngDoCheck`);
+  }
+  ngAfterViewInit() {
+     
+    this.log(`ngAfterViewInit`);
+  }
+  ngAfterViewChecked() {
+     
+    this.log(`ngAfterViewChecked`);
+  }
+  ngAfterContentInit() {
+     
+    this.log(`ngAfterContentInit`);
+  }
+  ngAfterContentChecked() {
+     
+    this.log(`ngAfterContentChecked`);
   }
 
+  private log(msg: string) {
+      console.log(this.count + ". " + msg);
+      this.count++;
+  }
 }

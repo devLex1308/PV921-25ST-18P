@@ -1,4 +1,14 @@
-import { Component, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, 
+	OnChanges,
+	SimpleChanges,
+  Input, 
+  OnInit,
+  DoCheck,
+  AfterContentInit, 
+  AfterContentChecked, 
+  AfterViewChecked, 
+  AfterViewInit
+ } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +16,13 @@ import { Component, OnChanges, SimpleChanges } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnChanges {
+export class AppComponent implements OnInit,
+  DoCheck,
+  OnChanges,
+  AfterContentInit, 
+  AfterContentChecked, 
+  AfterViewChecked, 
+  AfterViewInit {
   name:string="Tom";
 	age:number = 25;
 	ngOnChanges(changes: SimpleChanges) {
@@ -18,7 +34,35 @@ export class AppComponent implements OnChanges {
 	  }
 	}
 
-	private log(msg: string) {
-	    console.log(msg);
-	}
+	count:number=1;
+  ngOnInit() {
+     
+    this.log(`ngOnInit`);
+  }
+
+  ngDoCheck() {
+     
+    this.log(`ngDoCheck`);
+  }
+  ngAfterViewInit() {
+     
+    this.log(`ngAfterViewInit`);
+  }
+  ngAfterViewChecked() {
+     
+    this.log(`ngAfterViewChecked`);
+  }
+  ngAfterContentInit() {
+     
+    this.log(`ngAfterContentInit`);
+  }
+  ngAfterContentChecked() {
+     
+    this.log(`ngAfterContentChecked`);
+  }
+
+  private log(msg: string) {
+      console.log("father", this.count + ". " + msg);
+      this.count++;
+  }
 }
