@@ -16,4 +16,8 @@ export class DataService{
     	this.logService.write("операция добавления данных");
         this.data.push(name);
     }
+    deleteData(index: number){
+        this.logService.write("операция удаления данных");
+        this.data.splice(index, 1);
+    }
 }
