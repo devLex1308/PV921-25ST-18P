@@ -11,6 +11,9 @@ import { BoldDirective } from './bold.directive';
 import { ColorRedDirective } from './directives/color-red.directive';
 import { FirstServiseComponent } from './first-servise/first-servise.component';
 
+import { DataService } from './data.service';
+import { LogService } from './log.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +29,7 @@ import { FirstServiseComponent } from './first-servise/first-servise.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DataService, LogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
