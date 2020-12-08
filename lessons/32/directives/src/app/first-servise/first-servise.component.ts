@@ -18,6 +18,7 @@ export class FirstServiseComponent implements OnInit {
   addItem(name: string){
   	let newName = name;
   	if (newName && newName.trim())
+  		this.name = "";
     	this.dataService.addData(newName);
   }
   ngOnInit(){
