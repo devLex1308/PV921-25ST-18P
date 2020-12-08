@@ -6,17 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./post.component.css']
 })
 export class AppPost {
-	userName: string;
-    _userAge: number;
+	waterStatus: string;
+  _waterTemperature: number;
       
    
-    set userAge(age:number) {
-        if(age<0)
-            this._userAge=0;
-        else if(age>100)
-            this._userAge=100;
+    set waterTemperature(temperature:number) {
+        this._waterTemperature = temperature;
+        if(temperature<0)
+            this.waterStatus="Лід";
+        else if(temperature<100)
+            this.waterStatus="Вода";
         else
-            this._userAge = age;
+            this.waterStatus="Газ";
   }
-  get userAge() { return this._userAge; }
+  get waterTemperature() { return this._waterTemperature; }
 }
