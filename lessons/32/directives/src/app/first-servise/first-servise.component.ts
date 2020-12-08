@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { LogService } from '../log.service';
 
 
 @Component({
   selector: 'app-first-servise',
   templateUrl: './first-servise.component.html',
   styleUrls: ['./first-servise.component.css'],
-  providers: [DataService]
+  providers: [DataService, LogService]
 })
 export class FirstServiseComponent implements OnInit {
 
