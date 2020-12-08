@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 
+
 @Component({
   selector: 'app-first-servise',
   templateUrl: './first-servise.component.html',
@@ -21,4 +22,5 @@ export class FirstServiseComponent implements OnInit {
   ngOnInit(){
     this.items = this.dataService.getData();
   }
+
 }
