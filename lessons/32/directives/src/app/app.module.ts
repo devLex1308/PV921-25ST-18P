@@ -14,6 +14,7 @@ import { FirstServiseComponent } from './first-servise/first-servise.component';
 import { DataService } from './data.service';
 import { LogService } from './log.service';
 import { FormsComponent } from './forms/forms.component';
+import { PhoneComponent } from './phone/phone.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FormsComponent } from './forms/forms.component';
     BoldDirective,
     ColorRedDirective,
     FirstServiseComponent,
-    FormsComponent
+    FormsComponent,
+    PhoneComponent
   ],
   imports: [
     BrowserModule,
