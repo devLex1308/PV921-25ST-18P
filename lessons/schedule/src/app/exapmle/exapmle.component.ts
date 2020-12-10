@@ -9,6 +9,13 @@ export class Phone{
 }
 
 
+export class User{
+    name: string; 
+    email: string;
+    phone: string;
+}
+
+
 @Component({
   selector: 'app-exapmle',
   templateUrl: './exapmle.component.html',
@@ -16,13 +23,18 @@ export class Phone{
 })
 export class ExapmleComponent {
 
-   phone: Phone = new Phone("", 0, "");
-   companies: string[] = ["Apple", "Huawei", "Xiaomi", "Samsung", "LG", "Motorola", "Alcatel"];
+   // phone: Phone = new Phone("", 0, "");
+   // companies: string[] = ["Apple", "Huawei", "Xiaomi", "Samsung", "LG", "Motorola", "Alcatel"];
      
-    addPhone(title:NgModel, price: NgModel, comp: NgModel){
-        console.log(title);
-        console.log(price);
-        console.log(comp);
+   //  addPhone(title:NgModel, price: NgModel, comp: NgModel){
+   //      console.log(title);
+   //      console.log(price);
+   //      console.log(comp);
+   //  }
+
+    user: User = new User();
+    addUser(){
+        console.log(this.user);
     }
 
 }
