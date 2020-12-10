@@ -16,9 +16,9 @@ export class Phone{
 })
 export class ExapmleComponent {
 
-  title: string;
-	price: number;
-	company: string;
+  title: string = "";
+	price: number = 0;
+	company: string = "Apple";
 	 
 	phones: Phone[] = [];
 	companies: string[] = ["Apple", "Huawei", "Xiaomi", "Samsung", "LG", "Motorola", "Alcatel"];
