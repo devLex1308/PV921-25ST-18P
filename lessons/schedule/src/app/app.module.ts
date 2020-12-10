@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { ExapmleComponent } from './exapmle/exapmle.component';
 import { HttpComponent } from './http/http.component';
 
+import { HttpClientModule }   from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +18,8 @@ import { HttpComponent } from './http/http.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

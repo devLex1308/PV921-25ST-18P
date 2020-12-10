@@ -1,4 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
+
+class User{
+    name: string;
+    age: number;
+    constructor(name: string, age: number) {
+    	this.name = name;
+    	this.age = age;
+    }
+}
 
 @Component({
   selector: 'app-http',
@@ -7,9 +17,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HttpComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  	user: User = {
+  		name: '',
+  		age: 0,
+  	};
+ 
+	constructor(private http: HttpClient){}
+	  
+	ngOnInit(){
+	      
+	    this.http.get('assets/user.json').subscribe((data) => {
+	    	this.user = data;
+	    	console.log({data});
+	    });
+	}
 
 }
