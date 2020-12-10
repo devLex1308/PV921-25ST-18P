@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgModel} from '@angular/forms';	
+import { NgModel, NgForm} from '@angular/forms';	
 
 export class Phone{
     constructor(public title: string, 
@@ -33,8 +33,8 @@ export class ExapmleComponent {
    //  }
 
     user: User = new User();
-    addUser(){
-        console.log(this.user);
+    onSubmit(form: NgForm){
+        console.log(form);
     }
 
 }
