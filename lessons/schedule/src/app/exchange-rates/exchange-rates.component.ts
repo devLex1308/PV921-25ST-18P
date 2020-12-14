@@ -9,9 +9,24 @@ import { HttpClient} from '@angular/common/http';
 })
 export class ExchangeRatesComponent implements OnInit {
 
+  date: string = '01.12.2014';
+  url: string = 'https://api.privatbank.ua/p24api/exchange_rates';
+
   constructor() { }
 
+  getData() {
+    this.http.get(`${this.url}?json&date=${this.date}`).subscribe((data) => {
+      this.dataArray = data;
+      console.log({data});
+    });
+  }
+
+  getNewData() {
+    this.getData();
+  }
+
   ngOnInit(): void {
+    this.getData();
   }
 
 }
