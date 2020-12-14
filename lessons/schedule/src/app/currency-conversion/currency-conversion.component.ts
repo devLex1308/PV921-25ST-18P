@@ -1,6 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 
+
+interface CurrencyType {
+  ccy: string,
+  base_ccy: string,
+  buy: number,
+  sale:number
+}
+
+
+
 @Component({
   selector: 'app-currency-conversion',
   templateUrl: './currency-conversion.component.html',
@@ -15,7 +25,9 @@ export class CurrencyConversionComponent implements OnInit {
   currentBuy: number = 0;
   currentSale: number = 0;
 
-  changeCurrency (ccy) {
+  dataArray: CurrencyType[] = [];
+
+  changeCurrency (ccy: string) {
     const arr = this.dataArray.filter((item => item.ccy == ccy));
     const { buy, sale } = arr[0];
     this.currentBuy = buy;
@@ -24,8 +36,8 @@ export class CurrencyConversionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  	this.http.get('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5').subscribe((data: User) => {
-    	this.dataArray = data;
+  	this.http.get('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5').subscribe((data: CurrencyType[]) => {
+    	this.dataArray = data.filter(item => item.base_ccy == "UAH");
 
       const {
         ccy, buy, sale
