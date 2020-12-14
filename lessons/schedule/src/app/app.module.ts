@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 // import { ExapmleComponent } from './exapmle/exapmle.component';
 import { HttpComponent } from './http/http.component';
 import { CurrencyConversionComponent } from './currency-conversion/currency-conversion.component';
+import { ExchangeRatesComponent } from './exchange-rates/exchange-rates.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { CurrencyConversionComponent } from './currency-conversion/currency-conv
     AppComponent,
     // ExapmleComponent,
     HttpComponent,
-    CurrencyConversionComponent
+    CurrencyConversionComponent,
+    ExchangeRatesComponent
   ],
   imports: [
     BrowserModule,
