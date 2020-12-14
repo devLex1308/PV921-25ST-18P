@@ -1,15 +1,20 @@
 <div class="form-group">
-  <label>Производитель</label>
-  <select class="form-control" name="currentCurrency" (change)="changeCurrency($event.target.value)" [(ngModel)]="currentCurrency">
+  <label>Введіть суму:</label>
+  <input class="form-control" (change)="changeValue($event.target.value)"  name="inputValue" [(ngModel)]="inputValue" />
+
+  <label>Міняємо валюту</label>
+  <select class="form-control" name="inputCurrency" (change)="changeCurrency($event.target.value, 'buy')" [(ngModel)]="inputCurrency">
       <option  *ngFor="let data of dataArray" [value]="data.ccy">
           {{data.ccy}}
       </option>
   </select>
-  <p>
-    Продається за ціною: {{currentBuy}}
-  </p>
-  <p>
-    Купується за ціною: {{currentSale}}
-  </p>
-
+  <label>Отримуємо валюту</label>
+  <select class="form-control" name="outCurrency" (change)="changeCurrency($event.target.value, 'sale')" [(ngModel)]="outCurrency">
+      <option  *ngFor="let data of dataArray" [value]="data.ccy">
+          {{data.ccy}}
+      </option>
+  </select>
+  <h1>
+    {{outValue}}
+  </h1>
 </div>

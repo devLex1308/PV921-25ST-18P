@@ -20,18 +20,38 @@ export class CurrencyConversionComponent implements OnInit {
 
   constructor(private http: HttpClient){}
 
-  currentCurrency: string = '';
-
-  currentBuy: number = 0;
-  currentSale: number = 0;
+  inputValue: number = 0;
+  outValue: number = 0;
+  inputCurrency: string = '';
+  outCurrency: string = '';
 
   dataArray: CurrencyType[] = [];
 
-  changeCurrency (ccy: string) {
-    const arr = this.dataArray.filter((item => item.ccy == ccy));
-    const { buy, sale } = arr[0];
-    this.currentBuy = buy;
-    this.currentSale = sale;
+  calculateOutValue() {
+    const buyArr = this.dataArray.filter(item => item.ccy == this.inputCurrency);
+    const saleArr = this.dataArray.filter(item => item.ccy == this.outCurrency);
+
+    const { buy } = buyArr[0];
+    const { sale } = saleArr[0];
+
+    this.outValue = this.inputValue * buy / sale;
+  }
+
+  changeValue(value: string) {
+    this.inputValue = parseFloat(value);
+    this.calculateOutValue();
+  }
+
+  changeCurrency (ccy: string, operation: string) {
+    if (operation == 'buy') {
+      this.inputCurrency = ccy;
+    }
+
+    if (operation == 'sale') {
+      this.outCurrency = ccy;
+    }
+
+    this.calculateOutValue();
 
   }
 
@@ -42,11 +62,9 @@ export class CurrencyConversionComponent implements OnInit {
       const {
         ccy, buy, sale
       } = data[0];
-      this.currentCurrency = ccy;
+      this.inputCurrency = ccy;
+      this.outCurrency = ccy;
 
-
-      this.currentBuy = buy;
-      this.currentSale = sale;
     	console.log({data});
     });
 
