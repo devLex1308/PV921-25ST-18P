@@ -15,6 +15,13 @@ export class CurrencyConversionComponent implements OnInit {
   currentBuy: number = 0;
   currentSale: number = 0;
 
+  changeCurrency (ccy) {
+    const arr = this.dataArray.filter((item => item.ccy == ccy));
+    const { buy, sale } = arr[0];
+    this.currentBuy = buy;
+    this.currentSale = sale;
+
+  }
 
   ngOnInit(): void {
   	this.http.get('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5').subscribe((data: User) => {

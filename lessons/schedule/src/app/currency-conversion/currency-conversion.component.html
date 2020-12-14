@@ -1,6 +1,6 @@
 <div class="form-group">
   <label>Производитель</label>
-  <select class="form-control" name="currentCurrency" [(ngModel)]="currentCurrency">
+  <select class="form-control" name="currentCurrency" (change)="changeCurrency($event.target.value)" [(ngModel)]="currentCurrency">
       <option  *ngFor="let data of dataArray" [value]="data.ccy">
           {{data.ccy}}
       </option>
