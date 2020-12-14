@@ -7,13 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 // import { ExapmleComponent } from './exapmle/exapmle.component';
 import { HttpComponent } from './http/http.component';
+import { CurrencyConversionComponent } from './currency-conversion/currency-conversion.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     // ExapmleComponent,
-    HttpComponent
+    HttpComponent,
+    CurrencyConversionComponent
   ],
   imports: [
     BrowserModule,
