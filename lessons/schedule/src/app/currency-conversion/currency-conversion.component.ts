@@ -30,6 +30,8 @@ export class CurrencyConversionComponent implements OnInit {
 
   dataArray: CurrencyType[] = [];
 
+  url = "https://api8.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5";
+
   calculateOutValue() {
     const buyArr = this.dataArray.filter(item => item.ccy == this.inputCurrency);
     const saleArr = this.dataArray.filter(item => item.ccy == this.outCurrency);
@@ -63,7 +65,7 @@ export class CurrencyConversionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  	this.http.get('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5').subscribe((data: CurrencyType[]) => {
+  	this.http.get(this.url).subscribe((data: CurrencyType[]) => {
     	this.dataArray = data.filter(item => item.base_ccy == "UAH");
 
       const { ccy } = data[0];
@@ -75,7 +77,12 @@ export class CurrencyConversionComponent implements OnInit {
       this.dataOutArray = this.dataArray.filter(item => item.ccy != this.inputCurrency);
 
     	console.log({data});
-    });
+    },
+    error => {
+      console.log({error});
+    }
+
+    );
 
   }
 
