@@ -11,6 +11,7 @@ export class ExchangeRatesComponent implements OnInit {
 
   date: string = '01.12.2014';
   url: string = 'https://api.privatbank.ua/p24api/exchange_rates';
+  dataArray = [];
 
   constructor() { }
 
