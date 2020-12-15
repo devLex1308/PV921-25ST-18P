@@ -13,7 +13,7 @@ export class ExchangeRatesComponent implements OnInit {
   url: string = 'https://api.privatbank.ua/p24api/exchange_rates';
   dataArray = [];
 
-  constructor() { }
+  constructor(private http: HttpClient){}
 
   getData() {
     this.http.get(`${this.url}?json&date=${this.date}`).subscribe((data) => {
