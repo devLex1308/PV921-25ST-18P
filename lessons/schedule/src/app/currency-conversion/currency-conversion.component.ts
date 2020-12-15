@@ -31,7 +31,7 @@ export class CurrencyConversionComponent implements OnInit {
 
   dataArray: CurrencyType[] = [];
 
-  url = "https://api8.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5";
+  url = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5";
 
   calculateOutValue() {
     const buyArr = this.dataArray.filter(item => item.ccy == this.inputCurrency);
