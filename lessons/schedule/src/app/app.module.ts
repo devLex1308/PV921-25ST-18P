@@ -10,6 +10,7 @@ import { HttpComponent } from './http/http.component';
 import { CurrencyConversionComponent } from './currency-conversion/currency-conversion.component';
 import { ExchangeRatesComponent } from './exchange-rates/exchange-rates.component';
 import { HttpServiceComponent } from './http-service/http-service.component';
+import { HttpPostComponent } from './http-post/http-post.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { HttpServiceComponent } from './http-service/http-service.component';
     HttpComponent,
     CurrencyConversionComponent,
     ExchangeRatesComponent,
-    HttpServiceComponent
+    HttpServiceComponent,
+    HttpPostComponent
   ],
   imports: [
     BrowserModule,
