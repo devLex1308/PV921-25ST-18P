@@ -20,6 +20,7 @@ export class CurrencyConversionComponent implements OnInit {
 
   constructor(private http: HttpClient){}
 
+  hideServerError = true;
   inputValue: number = 0;
   outValue: number = 0;
   inputCurrency: string = '';
@@ -75,10 +76,11 @@ export class CurrencyConversionComponent implements OnInit {
 
       this.dataInputArray = this.dataArray.filter(item => item.ccy != this.outCurrency);
       this.dataOutArray = this.dataArray.filter(item => item.ccy != this.inputCurrency);
-
+      this.hideServerError = true;
     	console.log({data});
     },
     error => {
+      this.hideServerError = false;
       console.log({error});
     }
 

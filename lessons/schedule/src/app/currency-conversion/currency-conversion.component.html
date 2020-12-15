@@ -17,4 +17,10 @@
   <h1>
     {{outValue}}
   </h1>
+  <div [hidden]="hideServerError" class="error">
+    <h2>
+      Запит до сервара пройшов невдало! Спробуйте ще раз!
+    </h2>
+    <button>Спобувати ще раз!</button>
+  </div>
 </div>
