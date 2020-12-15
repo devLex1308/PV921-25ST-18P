@@ -88,4 +88,8 @@ export class CurrencyConversionComponent implements OnInit {
 
   }
 
+  tryAgane () {
+    console.log("Пробуємо ще раз");
+  }
+
 }
