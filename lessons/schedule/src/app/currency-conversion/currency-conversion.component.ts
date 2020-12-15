@@ -25,8 +25,8 @@ export class CurrencyConversionComponent implements OnInit {
   inputCurrency: string = '';
   outCurrency: string = '';
 
-  dataInputArray: CurrencyType[] = [];
   dataOutArray: CurrencyType[] = [];
+  dataInputArray: CurrencyType[] = [];
 
   dataArray: CurrencyType[] = [];
 
@@ -48,10 +48,14 @@ export class CurrencyConversionComponent implements OnInit {
   changeCurrency (ccy: string, operation: string) {
     if (operation == 'buy') {
       this.inputCurrency = ccy;
+      this.dataInputArray = this.dataArray.filter(item => item.ccy != this.outCurrency);
+      this.dataOutArray = this.dataArray.filter(item => item.ccy != this.inputCurrency);
     }
 
     if (operation == 'sale') {
-      this.outCurrency = ccy;
+        this.outCurrency = ccy;
+        this.dataInputArray = this.dataArray.filter(item => item.ccy != this.outCurrency);
+        this.dataOutArray = this.dataArray.filter(item => item.ccy != this.inputCurrency);
     }
 
     this.calculateOutValue();
@@ -62,8 +66,8 @@ export class CurrencyConversionComponent implements OnInit {
   	this.http.get('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5').subscribe((data: CurrencyType[]) => {
     	this.dataArray = data.filter(item => item.base_ccy == "UAH");
 
-      const { ccy } = this.dataArray[0];
-      const { ccy: outCcy } = this.dataArray[1];
+      const { ccy } = data[0];
+      const { ccy: outCcy } = data[1];
       this.inputCurrency = ccy;
       this.outCurrency = outCcy;
 

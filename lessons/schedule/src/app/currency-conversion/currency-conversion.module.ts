@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CurrencyConversionComponent } from './currency-conversion.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [CurrencyConversionComponent],
   imports: [
     CommonModule
   ]
