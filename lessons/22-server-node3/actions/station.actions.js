@@ -26,7 +26,10 @@ function getStation(data, c) {
     if (stationId) {
       c(false, store.stations[stationId]);
     }
-
+    else 
+    {
+      c(false, store.stations);
+    }
     console.log(data);
 
   });

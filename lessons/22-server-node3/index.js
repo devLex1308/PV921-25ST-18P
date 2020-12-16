@@ -18,6 +18,7 @@ const {
   addRout,
   deleteRout,
   editRout,
+  getRout
 } = require('./actions/rout.actions.js');
 
 
@@ -182,6 +183,7 @@ const requestHandler = (request, response) => {
       }
       case 'rout': {
         dataFromServer = "rout";
+        runAction = getRout;
         break;
       }
     }

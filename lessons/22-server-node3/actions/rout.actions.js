@@ -3,6 +3,34 @@ const {
   saveStore,
 } = require('../storeActions.js');
 
+function getRout(data, c) {
+  const routId = data
+    ? parseInt(data[3], 10)
+    : null;
+
+  if (data[3] && !routId) {
+    c(true, "Дайте число!");
+    return;
+  }
+
+  getStore(function (err, store) {
+
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    if (routId) {
+      c(false, store.routs[routId]);
+    }
+    else 
+    {
+      c(false, store.routs);
+    }
+    console.log(data);
+
+  });
+}
 
 function addRout(data, c) {
   getStore(function (err, store) {
@@ -88,4 +116,5 @@ module.exports = {
   addRout,
   deleteRout,
   editRout,
+  getRout
 }
