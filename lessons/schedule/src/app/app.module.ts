@@ -13,6 +13,8 @@ import { HttpServiceComponent } from './http-service/http-service.component';
 import { HttpPostComponent } from './http-post/http-post.component';
 import { StationComponent } from './station/station.component';
 import { StationsComponent } from './stations/stations.component';
+import { RoutComponent } from './rout/rout.component';
+import { RoutsComponent } from './routs/routs.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { StationsComponent } from './stations/stations.component';
     HttpServiceComponent,
     HttpPostComponent,
     StationComponent,
-    StationsComponent
+    StationsComponent,
+    RoutComponent,
+    RoutsComponent
   ],
   imports: [
     BrowserModule,
