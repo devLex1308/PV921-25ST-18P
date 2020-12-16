@@ -189,6 +189,9 @@ const requestHandler = (request, response) => {
     }
 
     if (runAction) {
+      response.setHeader('Access-Control-Allow-Origin', '*');
+      response.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+      response.setHeader('Access-Control-Allow-Methods', 'GET, PATCH, PUT, POST, DELETE, OPTIONS');
       response.setHeader('Content-Type', 'application/json');
       runAction(ursArr, function (err, result) {
 
