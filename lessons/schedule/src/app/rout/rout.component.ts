@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 
-
 @Component({
-  selector: 'app-station',
-  templateUrl: './station.component.html',
-  styleUrls: ['./station.component.css']
+  selector: 'app-rout',
+  templateUrl: './rout.component.html',
+  styleUrls: ['./rout.component.css']
 })
-export class StationComponent implements OnInit {
+export class RoutComponent implements OnInit {
 
   constructor(private http: HttpClient){}
 
@@ -15,7 +14,7 @@ export class StationComponent implements OnInit {
 
     ngOnInit(){
 
-      this.http.get('http://localhost:3001/api/station/1').subscribe((data) => {
+      this.http.get('http://localhost:3001/api/rout/1').subscribe((data) => {
         // this.user = data;
         this.name = data.name;
         console.log({data});

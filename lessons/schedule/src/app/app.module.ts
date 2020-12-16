@@ -12,6 +12,9 @@ import { ExchangeRatesComponent } from './exchange-rates/exchange-rates.componen
 import { HttpServiceComponent } from './http-service/http-service.component';
 import { HttpPostComponent } from './http-post/http-post.component';
 import { StationComponent } from './station/station.component';
+import { StationsComponent } from './stations/stations.component';
+import { RoutComponent } from './rout/rout.component';
+import { RoutsComponent } from './routs/routs.component';
 
 
 @NgModule({
@@ -23,7 +26,10 @@ import { StationComponent } from './station/station.component';
     ExchangeRatesComponent,
     HttpServiceComponent,
     HttpPostComponent,
-    StationComponent
+    StationComponent,
+    StationsComponent,
+    RoutComponent,
+    RoutsComponent
   ],
   imports: [
     BrowserModule,
