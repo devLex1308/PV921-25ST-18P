@@ -11,10 +11,13 @@ export class StationComponent implements OnInit {
 
   constructor(private http: HttpClient){}
 
+    name: string;
+
     ngOnInit(){
 
       this.http.get('http://localhost:3001/api/station/1').subscribe((data) => {
         // this.user = data;
+        this.name = data.name;
         console.log({data});
       });
   }
