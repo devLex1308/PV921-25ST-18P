@@ -187,6 +187,7 @@ const requestHandler = (request, response) => {
     }
 
     if (runAction) {
+      response.setHeader('Content-Type', 'application/json');
       runAction(ursArr, function (err, result) {
 
         if (err) {

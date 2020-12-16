@@ -5,14 +5,30 @@ const {
 
 
 function getStation(data, c) {
+
+
+  const stationId = data
+    ? parseInt(data[3], 10)
+    : null;
+
+  if (data[3] && !stationId) {
+    c(true, "Дайте число!");
+    return;
+  }
+
   getStore(function (err, store) {
 
     if (err) {
       console.log(err);
       return;
     }
+
+    if (stationId) {
+      c(false, store.stations[stationId]);
+    }
+
     console.log(data);
-    c(false, {id: 7});
+
   });
 }
 
