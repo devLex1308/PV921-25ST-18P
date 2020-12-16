@@ -11,6 +11,7 @@ import { CurrencyConversionComponent } from './currency-conversion/currency-conv
 import { ExchangeRatesComponent } from './exchange-rates/exchange-rates.component';
 import { HttpServiceComponent } from './http-service/http-service.component';
 import { HttpPostComponent } from './http-post/http-post.component';
+import { StationComponent } from './station/station.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { HttpPostComponent } from './http-post/http-post.component';
     CurrencyConversionComponent,
     ExchangeRatesComponent,
     HttpServiceComponent,
-    HttpPostComponent
+    HttpPostComponent,
+    StationComponent
   ],
   imports: [
     BrowserModule,
