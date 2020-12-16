@@ -11,7 +11,8 @@ const {
 const {
   addStation,
   deleteStation,
-  editStation
+  editStation,
+  getStation
 } = require('./actions/station.actions.js');
 const {
   addRout,
@@ -172,9 +173,11 @@ const requestHandler = (request, response) => {
     response.statusCode = status;
     let dataFromServer = "";
     const action = ursArr[2];
+    let runAction = null;
     switch (action) {
       case 'station': {
         dataFromServer = "station";
+        runAction = getStation;
         break;
       }
       case 'rout': {
@@ -182,8 +185,22 @@ const requestHandler = (request, response) => {
         break;
       }
     }
-    response.statusCode = 200;
-    response.end(dataFromServer);
+
+    if (runAction) {
+      runAction(ursArr, function (err, result) {
+
+        if (err) {
+          response.statusCode = 400;
+          response.end(JSON.stringify(result));
+        }
+
+        response.statusCode = 200;
+        response.end(JSON.stringify(result));
+      });
+    } else {
+      response.statusCode = 404;
+      response.end();
+    }
   }
 }
 

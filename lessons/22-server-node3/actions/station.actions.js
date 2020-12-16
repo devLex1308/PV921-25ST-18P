@@ -4,6 +4,19 @@ const {
 } = require('../storeActions.js');
 
 
+function getStation(data, c) {
+  getStore(function (err, store) {
+
+    if (err) {
+      console.log(err);
+      return;
+    }
+    console.log(data);
+    c(false, {id: 7});
+  });
+}
+
+
 function addStation(data, c) {
   getStore(function (err, store) {
 
@@ -89,4 +102,5 @@ module.exports = {
   addStation,
   deleteStation,
   editStation,
+  getStation
 }
