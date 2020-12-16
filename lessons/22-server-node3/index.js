@@ -21,12 +21,12 @@ const {
 
 
 
-const port = 3000;
+const port = 3001;
 
 const apiMethod = [
   'POST',
   'PUT',
-  'DELETE'
+  'DELETE',
 ];
 
 const requestHandler = (request, response) => {
@@ -35,7 +35,7 @@ const requestHandler = (request, response) => {
   let html = "Not found";
   let status = 404;
 
-  if (request.method == 'GET') {
+  if (request.method == 'GET' && ursArr[1] != 'api') {
 
     const isCss = request.url.match(/.css$/);
     const isJs = request.url.match(/.js$/);
@@ -161,11 +161,29 @@ const requestHandler = (request, response) => {
         }
 
       });
-
+      response.statusCode = status;
+      response.end("Test");
     } else {
       response.statusCode = status;
       response.end();
     }
+  } else {
+    console.log('get');
+    response.statusCode = status;
+    let dataFromServer = "";
+    const action = ursArr[2];
+    switch (action) {
+      case 'station': {
+        dataFromServer = "station";
+        break;
+      }
+      case 'rout': {
+        dataFromServer = "rout";
+        break;
+      }
+    }
+    response.statusCode = 200;
+    response.end(dataFromServer);
   }
 }
 
