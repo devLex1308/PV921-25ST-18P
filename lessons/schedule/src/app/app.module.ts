@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { HttpClientModule }   from '@angular/common/http';
+import {Routes, RouterModule} from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,7 +16,15 @@ import { StationComponent } from './station/station.component';
 import { StationsComponent } from './stations/stations.component';
 import { RoutComponent } from './rout/rout.component';
 import { RoutsComponent } from './routs/routs.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
+const appRoutes: Routes =[
+    { path: 'rout', component: RoutsComponent},
+    { path: 'station', component: StationsComponent},
+    { path: '', component: HomePageComponent },
+    { path: 'rout/:id', component: RoutComponent},
+    { path: 'station/:id', component: StationComponent},
+];
 
 @NgModule({
   declarations: [
@@ -29,13 +38,15 @@ import { RoutsComponent } from './routs/routs.component';
     StationComponent,
     StationsComponent,
     RoutComponent,
-    RoutsComponent
+    RoutsComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
