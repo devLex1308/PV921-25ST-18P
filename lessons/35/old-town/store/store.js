@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware  } from 'redux';
 
 import { todos } from "../reducers/todos.js";
 import { stations } from "../reducers/stations.js";
+import { routs } from "../reducers/routs.js";
 
 const asyncFunctionMiddleware = storeAPI => next => action => {
   // If the "action" is actually a function instead...
@@ -19,7 +20,8 @@ const middlewareEnhancer = applyMiddleware(asyncFunctionMiddleware);
 export const store = createStore(
   combineReducers ({
     todos,
-    stations
+    stations,
+    routs
   }), middlewareEnhancer
 );
 
