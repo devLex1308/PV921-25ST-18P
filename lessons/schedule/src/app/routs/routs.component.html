@@ -1,3 +1,4 @@
+<h1><a routerLink="">Головна</a></h1>
 <ul>
-  <li *ngFor="let item of routs">{{ item.name }}</li>
+  <li *ngFor="let item of routs; index as id"><a [routerLink]="[id]">{{ item.name }}</a></li>
 </ul>
