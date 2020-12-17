@@ -9,6 +9,12 @@ function Menu(props) {
         <Link href="/">
           <a >Головна</a>
         </Link>
+        <Link href="/station">
+          <a >Зупинки</a>
+        </Link>
+        <Link href="/route">
+          <a >Маршрути</a>
+        </Link>
       </li>
       </ul>
     </div>
