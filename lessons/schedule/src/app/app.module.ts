@@ -19,11 +19,11 @@ import { RoutsComponent } from './routs/routs.component';
 import { HomePageComponent } from './home-page/home-page.component';
 
 const appRoutes: Routes =[
-    { path: 'routs', component: RoutsComponent},
-    { path: 'stations', component: StationsComponent},
+    { path: 'rout', component: RoutsComponent},
+    { path: 'station', component: StationsComponent},
     { path: '', component: HomePageComponent },
-    { path: 'routs/:id', component: RoutComponent},
-    { path: 'stations/:id', component: StationComponent},
+    { path: 'rout/:id', component: RoutComponent},
+    { path: 'station/:id', component: StationComponent},
 ];
 
 @NgModule({
