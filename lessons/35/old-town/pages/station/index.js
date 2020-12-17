@@ -9,17 +9,22 @@ class Stations extends React.Component {
   }
 
   componentDidMount() {
-    this.getStationLocal();
-  }
-
-  getStationLocal = () => {
     this.props.getStations("Test");
   }
 
   render() {
+    const { stations } = this.props;
+
      return(
        <>
        <h1>Зупинки</h1>
+       <ul>
+       {
+        Object.keys(stations).map(key => (
+          <li>{stations[key].name}</li>
+        ))
+       }
+       </ul>
       </>
       );
 
