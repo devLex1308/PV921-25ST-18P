@@ -22,7 +22,7 @@ export class StationComponent implements OnInit {
         // this.user = data;
         this.name = data.name;
         console.log({data});
-      });
+    });
   }
 
 }
