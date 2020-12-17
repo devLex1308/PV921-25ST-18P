@@ -23,9 +23,17 @@ function getRout(data, c) {
     if (routId) {
       c(false, store.routs[routId]);
     }
-    else 
+    else
     {
-      c(false, store.routs);
+
+      const rotsSmall = Object.keys(store.routs).reduce((acc, key) => {
+        acc[key] = {
+          name: store.routs[key].name,
+        }
+        return acc;
+      }, {});
+
+      c(false, rotsSmall);
     }
     console.log(data);
 
