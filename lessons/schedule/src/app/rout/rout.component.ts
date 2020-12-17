@@ -17,7 +17,7 @@ export class RoutComponent implements OnInit {
     id: number;
     ngOnInit(){
 
-      this.http.get(`http://localhost:3001/api/rout/${this.id}`).subscribe((data) => {
+      this.http.get(`http://localhost:3200/api/rout/${this.id}`).subscribe((data) => {
         // this.user = data;
         this.name = data.name;
         console.log({data});
