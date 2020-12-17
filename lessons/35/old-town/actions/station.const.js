@@ -1,0 +1,4 @@
+export const ADD_STATION = "ADD_STATION";
+export const EDIT_STATION = "EDIT_STATION";
+export const DELETE_STATION = "DELETE_STATION";
+export const GET_STATIONS = "GET_STATIONS";
