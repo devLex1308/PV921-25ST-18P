@@ -1,3 +1,6 @@
 <h2><a routerLink="">Головна</a></h2>
 <h3><a routerLink="/rout">Назад</a></h3>
 <p>{{name}}</p>
+<ul>
+  <li *ngFor="let item of stations">{{ item.name }}</li>
+</ul>

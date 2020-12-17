@@ -15,11 +15,21 @@ export class RoutComponent implements OnInit {
 
     name: string;
     id: number;
+    stations: object = [];
     ngOnInit(){
 
       this.http.get(`http://localhost:3200/api/rout/${this.id}`).subscribe((data) => {
         // this.user = data;
         this.name = data.name;
+        this.http.get(`http://localhost:3200/api/station`).subscribe((dataS) => {
+          let stations = Object.keys(dataS).map(key => (dataS[key]));
+          for (let i = 0; i < data.waybill.length; i++)
+          {
+            this.stations[i] = stations[data.waybill[i][0]];
+            console.log(stations[data.waybill[i][0]]);
+          }
+          console.log(this.stations);
+        });
         console.log({data});
       });
   }
