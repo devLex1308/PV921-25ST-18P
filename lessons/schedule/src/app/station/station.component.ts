@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
+import { ActivatedRoute} from '@angular/router';
 
 
 @Component({
@@ -9,13 +10,15 @@ import { HttpClient} from '@angular/common/http';
 })
 export class StationComponent implements OnInit {
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient, private activateRoute: ActivatedRoute){
+    this.id = activateRoute.snapshot.params['id'];
+  }
 
     name: string;
-
+    id: number;
     ngOnInit(){
 
-      this.http.get('http://localhost:3001/api/station/1').subscribe((data) => {
+      this.http.get(`http://localhost:3001/api/station/${this.id}`).subscribe((data) => {
         // this.user = data;
         this.name = data.name;
         console.log({data});
