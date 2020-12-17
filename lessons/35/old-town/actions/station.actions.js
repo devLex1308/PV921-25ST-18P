@@ -3,7 +3,7 @@ import {
   EDIT_STATION,
   DELETE_STATION,
   GET_STATIONS,
-} from "./todo.const.js";
+} from "./station.const.js";
 
 export function addTodo(todo) {
   return {
@@ -27,10 +27,15 @@ export function deleteTodo(id) {
 }
 
 
-export function getStations(id) {
+export const getStations = (a) => async (dispatch, store) => {
+  console.log('getStations', a, dispatch, store);
+
+  const res = await fetch("http://localhost:3200/api/station");
+  const data = await res.json();
+  console.log({data});
+
   return {
     type: GET_STATIONS,
-    id
   }
 }
 
