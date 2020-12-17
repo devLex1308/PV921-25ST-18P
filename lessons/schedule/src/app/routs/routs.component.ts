@@ -13,7 +13,7 @@ export class RoutsComponent implements OnInit {
   routs: object = [];
   keys: string[] = [];
   ngOnInit() {
-  	this.http.get('http://localhost:3001/api/rout').subscribe((data) => {
+  	this.http.get('http://localhost:3200/api/rout').subscribe((data) => {
         // this.user = data;
 
         this.routs = Object.keys(data).map(key => (data[key]));

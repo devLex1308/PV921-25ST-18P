@@ -18,11 +18,11 @@ export class StationComponent implements OnInit {
     id: number;
     ngOnInit(){
 
-      this.http.get(`http://localhost:3001/api/station/${this.id}`).subscribe((data) => {
+      this.http.get(`http://localhost:3200/api/station/${this.id}`).subscribe((data) => {
         // this.user = data;
         this.name = data.name;
         console.log({data});
-      });
+    });
   }
 
 }
