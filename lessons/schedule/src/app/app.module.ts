@@ -39,7 +39,7 @@ const appRoutes: Routes =[
     StationsComponent,
     RoutComponent,
     RoutsComponent,
-    HomePageComponent
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,
