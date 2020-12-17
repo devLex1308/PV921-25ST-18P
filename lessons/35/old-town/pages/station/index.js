@@ -1,9 +1,19 @@
 import React from "react";
+import { connect } from 'react-redux';
+import { getStations } from "../../actions/station.actions.js";
 
 
-export default class Main extends React.Component {
+class Stations extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+    this.getStationLocal();
+  }
+
+  getStationLocal = () => {
+    this.props.getStations("Test");
   }
 
   render() {
@@ -15,4 +25,18 @@ export default class Main extends React.Component {
 
   }
 }
+
+const mapStateToProps = (state /*, ownProps*/) => {
+  return {
+    stations: state.stations,
+  }
+}
+
+const mapDispatchToProps = {
+  getStations,
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Stations);
+
 
