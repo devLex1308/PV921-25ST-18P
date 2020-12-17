@@ -8,6 +8,7 @@ import {
 
 
 export function stations(state = stationsDefault, action) {
+    console.log(action);
   switch (action.type) {
     case ADD_STATION:
       return state;
@@ -19,7 +20,10 @@ export function stations(state = stationsDefault, action) {
       return state;
 
       case GET_STATIONS:
-      return state;
+      return {
+        ...state,
+        ...action.payload.stations,
+      };
     default:
       return state
   }

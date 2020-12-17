@@ -28,14 +28,25 @@ export function deleteTodo(id) {
 
 
 export const getStations = (a) => async (dispatch, store) => {
-  console.log('getStations', a, dispatch, store);
+  // console.log('getStations', a, dispatch, store);
 
   const res = await fetch("http://localhost:3200/api/station");
-  const data = await res.json();
-  console.log({data});
+  const text = await res.text();
+  try {
+    const data = JSON.parse(text);
 
-  return {
-    type: GET_STATIONS,
+    dispatch({
+      type: GET_STATIONS,
+      payload: {
+        stations: data,
+      }
+    });
+  } catch (e) {
+    return dispatch({
+      type: 'VOID',
+      payload: {}
+    });
   }
+
 }
 
